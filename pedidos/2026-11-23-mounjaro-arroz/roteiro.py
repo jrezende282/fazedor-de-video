@@ -1,4 +1,4 @@
-"""Pedido: a Dona Cida, que comia um quilo de arroz por refeição, começa o Mounjaro e fica magrinha (com humor e final motivacional)."""
+"""Pedido: a Flávia, que comia um quilo de arroz por refeição, começa o Mounjaro e fica magrinha (com humor e final motivacional)."""
 import json
 import math
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 TINTA = "#3a2716"
 VESTIDO = "#c0504d"
 VESTIDO2 = "#e6a08a"
-CABELO = "#6b4428"
+CABELO = "#ecc75e"  # loira
 PELE = "#eab58c"
 ARROZ = "#fbf8ee"
 VERDE = "#5b8a3a"
@@ -41,7 +41,7 @@ def coracao(x, y, s=1.0, cor=VERM, extra=""):
 
 
 def cida(cx, pes, s=1.0, larg=1.0, rosto="feliz", bracos="baixo", extra=""):
-    """Dona Cida. (cx, pes) = meio dos pés no chão. larg = 1.0 (antes) ... 0.45 (magrinha)."""
+    """Flávia. (cx, pes) = meio dos pés no chão. larg = 1.0 (antes) ... 0.45 (magrinha)."""
     cy = pes - 330 * s          # centro da cabeça
     r = 46 * s
     w = 150 * s * larg          # meia largura do vestido
@@ -105,7 +105,7 @@ def alface(x, y, r=34, cor=VERDE2, extra=""):
 
 # ---------------------------------------------------------------- cenas
 def cena1():
-    """Dona Cida abraçada num saco de arroz, com coraçõezinhos."""
+    """Flávia abraçada num saco de arroz, com coraçõezinhos."""
     saco = (f'<g data-entra="baixo" data-t="0.4" data-d="0.5"><path d="M560 820 q-30 -170 20 -260 l40 -30 h120 l40 30 q50 90 20 260z" fill="#efe3c4"/>'
             f'<path d="M610 530 q60 20 120 0" fill="none" stroke-width="5"/>'
             f'<text x="680" y="700" text-anchor="middle" font-family="Inter" font-weight="900" font-size="52" fill="{VERM}" stroke="none">ARROZ</text>'
@@ -187,7 +187,7 @@ def cena8():
 
 
 CENAS = [
-    {"fala": "Essa é a Dona Cida, e ela era apaixonada por *arroz*.", "visual": {"tipo": "ilustracao", "svg": cena1()}},
+    {"fala": "Essa é a *Flávia*, e ela era apaixonada por arroz.", "visual": {"tipo": "ilustracao", "svg": cena1()}},
     {"fala": "Era um *quilo* de arroz em cada refeição.", "visual": {"tipo": "ilustracao", "svg": cena2()}},
     {"fala": "Até que um belo dia... chegou o *Mounjaro*.", "visual": {"tipo": "ilustracao", "svg": cena3()}, "pausa": 0.4},
     {"fala": "Agora são quarenta *gramas* de arroz. Contadinhas.", "visual": {"tipo": "numero", "valor": "40", "sufixo": "g", "rotulo": "de arroz"}},
@@ -197,7 +197,7 @@ CENAS = [
     {"fala": "Continua firme no seu Mounjaro, com acompanhamento médico, que *tudo vai dar certo*!", "visual": {"tipo": "ilustracao", "svg": cena8()}},
 ]
 
-roteiro = {"titulo": "Dona Cida e o Mounjaro",
+roteiro = {"titulo": "Flávia e o Mounjaro",
            "legenda_post": "De um quilo de arroz para quarenta gramas 🍚➡️🥗 Continua firme, que tudo vai dar certo! 💪 #mounjaro #emagrecimento #antesedepois #motivacao #humor",
            "cenas": CENAS}
 Path(__file__).with_name("roteiro.json").write_text(json.dumps(roteiro, ensure_ascii=False), encoding="utf-8")
