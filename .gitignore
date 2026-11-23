@@ -1,0 +1,12 @@
+__pycache__/
+saida/videos/*
+!saida/videos/.gitkeep
+navegador/
+chave_api.txt
+.sem_chave
+.instalado_*
+moldes/*/amostra.jpg
+moldes/*/exemplos/
+*.mp4
+*.wav
+*.mp3

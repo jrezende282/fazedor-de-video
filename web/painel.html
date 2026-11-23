@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animatik</title>
+<link rel="stylesheet" href="/web/fontes/fontes.css">
+<style>
+:root { --bg:#0c0d10; --bg2:#14161b; --bg3:#1b1e25; --borda:#262a33; --txt:#eceef3; --suave:#8b92a3; --ac:#b6ff3b; --ac2:#7c5cff; --erro:#ff5a6a; --ok:#3ddc84; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.45 "Inter", "Segoe UI", sans-serif; }
+header { position:sticky; top:0; z-index:5; background:rgba(12,13,16,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--borda); }
+.barra { max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px 16px; }
+.logo { font:700 22px "Space Grotesk", sans-serif; letter-spacing:-.02em; display:flex; align-items:center; gap:10px; }
+.logo i { width:26px; height:26px; border-radius:8px; background:conic-gradient(from 200deg, var(--ac), var(--ac2), var(--ac)); display:block; }
+nav { display:flex; gap:4px; margin-left:auto; }
+nav button { background:none; border:0; color:var(--suave); font:600 14px inherit; padding:9px 14px; border-radius:10px; cursor:pointer; font-family:inherit; }
+nav button.ativo { background:var(--bg3); color:var(--txt); }
+nav .bolha { background:var(--ac); color:#111; border-radius:9px; padding:0 6px; font-size:11px; margin-left:4px; }
+main { max-width:1180px; margin:0 auto; padding:22px 16px 80px; }
+h2 { font:700 20px "Space Grotesk", sans-serif; margin:0 0 4px; } .sub { color:var(--suave); margin:0 0 18px; }
+.passo { background:var(--bg2); border:1px solid var(--borda); border-radius:16px; padding:18px; margin-bottom:16px; }
+.passo > h3 { margin:0 0 12px; font-size:15px; display:flex; gap:10px; align-items:center; }
+.passo > h3 b { width:24px; height:24px; border-radius:50%; background:var(--ac); color:#111; display:grid; place-items:center; font-size:13px; }
+.grade-moldes { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px; }
+.molde { border:2px solid var(--borda); border-radius:14px; overflow:hidden; cursor:pointer; background:var(--bg3); transition:border-color .15s; }
+.molde.sel { border-color:var(--ac); }
+.molde img { width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#000; }
+.molde .info { padding:8px 10px; } .molde .info b { display:block; font-size:13px; } .molde .info span { font-size:11.5px; color:var(--suave); }
+.cores { display:flex; gap:4px; margin-top:6px; } .cores i { width:14px; height:14px; border-radius:4px; border:1px solid rgba(255,255,255,.15); }
+textarea, input, select { width:100%; background:var(--bg); border:1px solid var(--borda); color:var(--txt); border-radius:10px; padding:10px 12px; font:inherit; }
+textarea { resize:vertical; min-height:96px; }
+label.campo { display:block; font-size:12.5px; color:var(--suave); margin:10px 0 5px; }
+.linha { display:flex; gap:12px; flex-wrap:wrap; } .linha > * { flex:1; min-width:150px; }
+.alternar { display:inline-flex; background:var(--bg); border:1px solid var(--borda); border-radius:11px; padding:3px; margin-bottom:10px; }
+.alternar button { background:none; border:0; color:var(--suave); padding:7px 14px; border-radius:8px; font:600 13px inherit; cursor:pointer; font-family:inherit; }
+.alternar button.ativo { background:var(--bg3); color:var(--txt); }
+.btn { background:var(--ac); color:#111; border:0; border-radius:11px; padding:11px 18px; font:700 14px inherit; cursor:pointer; font-family:inherit; display:inline-flex; align-items:center; gap:8px; }
+.btn.sec { background:var(--bg3); color:var(--txt); border:1px solid var(--borda); }
+.btn.mini { padding:6px 10px; font-size:12.5px; border-radius:9px; }
+.btn.perigo { background:none; color:var(--erro); border:1px solid rgba(255,90,106,.35); }
+.btn:disabled { opacity:.5; cursor:wait; }
+.aviso { background:rgba(124,92,255,.12); border:1px solid rgba(124,92,255,.35); border-radius:12px; padding:10px 14px; font-size:13.5px; margin-bottom:12px; }
+.erro-txt { color:var(--erro); font-size:13.5px; margin-top:8px; }
+.cena { display:grid; grid-template-columns:34px 1fr 160px auto; gap:10px; align-items:start; padding:10px; border:1px solid var(--borda); border-radius:12px; margin-bottom:8px; background:var(--bg); }
+.cena .n { font:700 13px "JetBrains Mono", monospace; color:var(--suave); padding-top:10px; text-align:center; }
+.cena details { grid-column:2 / 4; font-size:12.5px; color:var(--suave); } .cena details textarea { min-height:70px; font:12px "JetBrains Mono", monospace; margin-top:6px; }
+.cena .acoes { display:flex; flex-direction:column; gap:4px; } .cena .acoes button { background:var(--bg3); border:1px solid var(--borda); color:var(--suave); border-radius:7px; width:30px; height:28px; cursor:pointer; }
+.grade-videos { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; }
+.video { background:var(--bg2); border:1px solid var(--borda); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+.video .capa { aspect-ratio:9/16; background:#000; position:relative; display:grid; place-items:center; color:var(--suave); font-size:13px; }
+.video .capa img, .video .capa video { width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; }
+.video .corpo { padding:10px 12px 12px; display:flex; flex-direction:column; gap:8px; }
+.video .tit { font-weight:700; font-size:14px; } .video .meta { font-size:12px; color:var(--suave); }
+.prog { height:6px; background:var(--bg3); border-radius:6px; overflow:hidden; } .prog i { display:block; height:100%; background:var(--ac); transition:width .4s; }
+.acoes-v { display:flex; gap:6px; flex-wrap:wrap; }
+.vazio { padding:40px; text-align:center; color:var(--suave); border:1px dashed var(--borda); border-radius:14px; }
+dialog { background:var(--bg2); color:var(--txt); border:1px solid var(--borda); border-radius:16px; width:min(640px, 94vw); padding:20px; }
+dialog::backdrop { background:rgba(0,0,0,.6); }
+.cor-campo { display:flex; gap:8px; align-items:center; } .cor-campo input[type=color] { width:44px; height:38px; padding:2px; }
+.toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--bg3); border:1px solid var(--borda); padding:10px 16px; border-radius:12px; z-index:20; display:none; }
+@media (max-width:640px) { .cena { grid-template-columns:28px 1fr; } .cena select, .cena details { grid-column:2; } .cena .acoes { grid-column:2; flex-direction:row; } nav button { padding:8px 9px; } .logo span { display:none; } }
+</style>
+</head>
+<body>
+<header><div class="barra">
+  <div class="logo"><i></i><span>Animatik</span></div>
+  <nav>
+    <button data-aba="criar" class="ativo">Criar</button>
+    <button data-aba="videos">Vídeos <span class="bolha" id="b-fila" hidden></span></button>
+    <button data-aba="moldes">Moldes</button>
+  </nav>
+</div></header>
+
+<main>
+<!-- ============================== CRIAR -->
+<section id="aba-criar">
+  <h2>Novo vídeo</h2>
+  <p class="sub">Escolha o estilo, diga sobre o que é o vídeo, revise o roteiro e o Animatik faz o resto: narração, animação, música.</p>
+  <div id="aviso-chave" class="aviso" hidden>Sem a chave da API do Claude, a opção <b>“A IA escreve”</b> fica desligada. Você ainda pode usar <b>“Meu texto”</b>: escreva a fala e o Animatik monta as cenas. Veja no LEIA-ME como ligar a chave.</div>
+
+  <div class="passo"><h3><b>1</b> Estilo (molde)</h3><div class="grade-moldes" id="escolha-molde"></div></div>
+
+  <div class="passo"><h3><b>2</b> Do que é o vídeo?</h3>
+    <div class="alternar" id="modo">
+      <button data-modo="tema" class="ativo">A IA escreve (tema)</button>
+      <button data-modo="texto">Meu texto</button>
+    </div>
+    <textarea id="conteudo" placeholder="Ex.: como eu fiz um robô que corta lives sozinho"></textarea>
+    <div class="linha">
+      <div><label class="campo">Duração</label><select id="duracao"><option value="25">~25 s</option><option value="40" selected>~40 s</option><option value="60">~60 s</option><option value="80">~80 s</option></select></div>
+      <div><label class="campo">Palavra para comentarem (opcional)</label><input id="palavra" placeholder="Ex.: ROBÔ"></div>
+      <div><label class="campo">Voz</label><select id="voz"></select></div>
+    </div>
+    <p style="margin:14px 0 0"><button class="btn" id="bt-roteiro">Escrever roteiro</button></p>
+    <div class="erro-txt" id="erro-roteiro"></div>
+  </div>
+
+  <div class="passo" id="passo-roteiro" hidden><h3><b>3</b> Revise o roteiro</h3>
+    <p class="sub" style="margin-top:-6px">Cada linha é uma cena. Palavras entre <b>*asteriscos*</b> ficam destacadas na tela.</p>
+    <label class="campo">Título</label><input id="r-titulo">
+    <div id="r-cenas" style="margin-top:12px"></div>
+    <button class="btn sec mini" id="bt-add-cena">+ cena</button>
+    <label class="campo">Legenda do post</label><textarea id="r-legenda" style="min-height:70px"></textarea>
+    <p style="margin:14px 0 0"><button class="btn" id="bt-produzir">Produzir vídeo</button></p>
+  </div>
+</section>
+
+<!-- ============================== VÍDEOS -->
+<section id="aba-videos" hidden>
+  <h2>Vídeos</h2><p class="sub">Os vídeos ficam prontos aqui. Um de cada vez; cada um leva de 1 a 4 minutos.</p>
+  <div class="grade-videos" id="lista-videos"></div>
+</section>
+
+<!-- ============================== MOLDES -->
+<section id="aba-moldes" hidden>
+  <h2>Moldes</h2><p class="sub">Um molde é um estilo: cores, tipo de animação, voz, música e o jeito do roteiro.</p>
+  <div class="passo"><h3><b>+</b> Novo molde a partir de exemplos</h3>
+    <p class="sub" style="margin-top:-6px">Mande de 1 a 3 vídeos no estilo que você quer. A IA olha os vídeos e monta o molde (precisa da chave da API).</p>
+    <div class="linha"><div><label class="campo">Nome do molde</label><input id="nm-nome" placeholder="Ex.: Bastidores verde"></div>
+      <div><label class="campo">Vídeos de exemplo</label><input id="nm-arquivos" type="file" accept="video/*" multiple></div></div>
+    <p style="margin:12px 0 0"><button class="btn" id="bt-novo-molde">Criar molde</button></p>
+    <div id="tarefas-moldes"></div>
+  </div>
+  <div class="grade-moldes" id="lista-moldes"></div>
+</section>
+</main>
+
+<dialog id="dlg-molde"><form method="dialog" id="form-molde"></form></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TIPOS = {titulo:"Título gigante", comando:"Pedido digitado", cards:"Cartões", fluxo:"Etapas", riscado:"Em vez de (riscado)", numero:"Número", grafico:"Gráfico subindo", lista:"Lista com check", icone:"Ícone", avatar:"Avatar", cta:"Chamada final"};
+const est = { aba:"criar", molde:null, modo:"tema", moldes:[], vozes:{}, roteiro:null, chave:false };
+
+async function api(url, opt = {}) {
+  const r = await fetch(url, opt.body && !(opt.body instanceof FormData) ? {...opt, headers:{"Content-Type":"application/json"}, body:JSON.stringify(opt.body)} : opt);
+  if (!r.ok) { let m = r.statusText; try { m = (await r.json()).detail || m; } catch {} throw new Error(m); }
+  return r.json();
+}
+function toast(t) { const e = $("#toast"); e.textContent = t; e.style.display = "block"; clearTimeout(e._t); e._t = setTimeout(() => e.style.display = "none", 2600); }
+
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => abrir(b.dataset.aba));
+function abrir(aba) {
+  est.aba = aba;
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("ativo", b.dataset.aba === aba));
+  ["criar", "videos", "moldes"].forEach(a => $("#aba-" + a).hidden = a !== aba);
+  if (aba === "videos") { est.ultimaLista = null; carregarVideos(); }
+  if (aba === "moldes") carregarMoldes();
+}
+
+// ------------------------------------------------------------ criar
+function cartaoMolde(m, sel) {
+  const c = m.cores || {};
+  return `<div class="molde ${sel ? "sel" : ""}" data-id="${esc(m.id)}">
+    <img loading="lazy" src="/api/moldes/${encodeURIComponent(m.id)}/amostra.jpg?v=${Date.now() % 1e6}" alt="">
+    <div class="info"><b>${esc(m.nome)}</b><span>${m.formato === "monitor" ? "tela filmada" : "vertical"}${m.exemplos ? ` · ${m.exemplos} exemplo(s)` : ""}</span>
+    <div class="cores">${[c.fundo, c.texto, c.destaque, c.destaque2].filter(Boolean).map(x => `<i style="background:${esc(x)}"></i>`).join("")}</div></div></div>`;
+}
+async function carregarEstado() {
+  const e = await api("/api/estado"); est.chave = e.tem_chave; est.vozes = e.vozes;
+  $("#aviso-chave").hidden = e.tem_chave;
+  if (!e.tem_chave) trocarModo("texto");
+  const r = await api("/api/moldes"); est.moldes = r.moldes;
+  if (!est.molde && est.moldes.length) est.molde = est.moldes[0].id;
+  desenharEscolha();
+}
+function desenharEscolha() {
+  $("#escolha-molde").innerHTML = est.moldes.map(m => cartaoMolde(m, m.id === est.molde)).join("");
+  $("#escolha-molde").querySelectorAll(".molde").forEach(d => d.onclick = () => { est.molde = d.dataset.id; desenharEscolha(); });
+  const m = est.moldes.find(x => x.id === est.molde);
+  $("#voz").innerHTML = `<option value="">Do molde (${esc(est.vozes[m?.voz] || m?.voz || "")})</option>` +
+    Object.entries(est.vozes).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join("");
+}
+function trocarModo(m) {
+  est.modo = m;
+  document.querySelectorAll("#modo button").forEach(b => b.classList.toggle("ativo", b.dataset.modo === m));
+  $("#conteudo").placeholder = m === "tema" ? "Ex.: como eu fiz um robô que corta lives sozinho"
+    : "Escreva a fala do vídeo. Cada frase vira uma cena.\nEx.: Eu criei um *robô* que assiste live por mim. Ele fica de olho em vários streamers ao mesmo tempo...";
+}
+document.querySelectorAll("#modo button").forEach(b => b.onclick = () => {
+  if (b.dataset.modo === "tema" && !est.chave) return toast("Configure a chave da API para a IA escrever.");
+  trocarModo(b.dataset.modo);
+});
+
+$("#bt-roteiro").onclick = async () => {
+  const bt = $("#bt-roteiro"); $("#erro-roteiro").textContent = "";
+  bt.disabled = true; bt.textContent = est.modo === "tema" ? "A IA está escrevendo..." : "Montando as cenas...";
+  try {
+    est.roteiro = await api("/api/roteiro", { method:"POST", body:{ molde:est.molde, modo:est.modo, conteudo:$("#conteudo").value,
+      duracao:+$("#duracao").value, palavra_cta:$("#palavra").value } });
+    desenharRoteiro(); $("#passo-roteiro").hidden = false; $("#passo-roteiro").scrollIntoView({behavior:"smooth"});
+  } catch (e) { $("#erro-roteiro").textContent = e.message; }
+  bt.disabled = false; bt.textContent = "Escrever roteiro";
+};
+
+function desenharRoteiro() {
+  const r = est.roteiro;
+  $("#r-titulo").value = r.titulo || ""; $("#r-legenda").value = r.legenda_post || "";
+  $("#r-cenas").innerHTML = r.cenas.map((c, i) => {
+    const v = {...(c.visual || {})}; delete v.tipo;
+    return `<div class="cena" data-i="${i}"><div class="n">${String(i + 1).padStart(2, "0")}</div>
+      <input class="fala" value="${esc(c.fala)}">
+      <select class="tipo">${Object.entries(TIPOS).map(([k, t]) => `<option value="${k}" ${c.visual?.tipo === k ? "selected" : ""}>${t}</option>`).join("")}</select>
+      <div class="acoes"><button type="button" data-a="sobe" title="Subir">↑</button><button type="button" data-a="tira" title="Tirar">✕</button></div>
+      <details><summary>detalhes do visual</summary><textarea class="det">${esc(JSON.stringify(v, null, 1))}</textarea></details></div>`;
+  }).join("");
+  $("#r-cenas").querySelectorAll("button[data-a]").forEach(b => b.onclick = () => {
+    lerRoteiro(); const i = +b.closest(".cena").dataset.i, cs = est.roteiro.cenas;
+    if (b.dataset.a === "tira") cs.splice(i, 1); else if (i > 0) [cs[i - 1], cs[i]] = [cs[i], cs[i - 1]];
+    desenharRoteiro();
+  });
+}
+function lerRoteiro() {
+  const r = est.roteiro; r.titulo = $("#r-titulo").value; r.legenda_post = $("#r-legenda").value;
+  r.cenas = [...document.querySelectorAll("#r-cenas .cena")].map(d => {
+    let v = {}; try { v = JSON.parse(d.querySelector(".det").value || "{}"); } catch { throw new Error(`Cena ${+d.dataset.i + 1}: os detalhes do visual estão com erro de digitação.`); }
+    return { fala:d.querySelector(".fala").value, visual:{ ...v, tipo:d.querySelector(".tipo").value } };
+  }).filter(c => c.fala.trim());
+}
+$("#bt-add-cena").onclick = () => { lerRoteiro(); est.roteiro.cenas.push({fala:"", visual:{tipo:"titulo", texto:""}}); desenharRoteiro(); };
+$("#bt-produzir").onclick = async () => {
+  try { lerRoteiro(); } catch (e) { return toast(e.message); }
+  if (!est.roteiro.cenas.length) return toast("O roteiro está vazio.");
+  const bt = $("#bt-produzir"); bt.disabled = true;
+  try { await api("/api/videos", { method:"POST", body:{ molde:est.molde, roteiro:est.roteiro, voz:$("#voz").value || null } });
+    toast("Vídeo na fila!"); abrir("videos"); } catch (e) { toast(e.message); }
+  bt.disabled = false;
+};
+
+// ------------------------------------------------------------ vídeos
+async function carregarVideos() {
+  const vs = await api("/api/videos");
+  const fila = vs.filter(v => ["na fila", "produzindo"].includes(v.status)).length;
+  $("#b-fila").hidden = !fila; $("#b-fila").textContent = fila;
+  if (est.aba !== "videos") return;
+  const assinatura = JSON.stringify(vs.map(v => [v.id, v.status, v.progresso, v.etapa]));
+  if (assinatura === est.ultimaLista) return;   // nada mudou: não redesenha (não pisca)
+  est.ultimaLista = assinatura;
+  $("#lista-videos").innerHTML = vs.length ? vs.map(v => `<div class="video" data-id="${esc(v.id)}">
+    <div class="capa">${v.video ? `<video src="${v.video}" poster="${v.miniatura}" controls preload="none"></video>` :
+      v.miniatura ? `<img src="${v.miniatura}">` : (v.status === "erro" ? "deu erro" : esc(v.etapa || "na fila") + "...")}</div>
+    <div class="corpo"><div class="tit">${esc(v.titulo || "vídeo")}</div>
+      <div class="meta">${esc(v.molde || "")} · ${v.status === "pronto" ? (v.duracao + " s") : esc(v.status)}</div>
+      ${["na fila", "produzindo"].includes(v.status) ? `<div class="prog"><i style="width:${Math.round((v.progresso || 0) * 100)}%"></i></div><div class="meta">${esc(v.etapa || "")} ${Math.round((v.progresso || 0) * 100)}%</div>` : ""}
+      ${v.status === "erro" ? `<div class="erro-txt">${esc(v.erro)}</div>` : ""}
+      <div class="acoes-v">
+        ${v.video ? `<a class="btn mini" href="${v.video}" download="${esc((v.titulo || "video").replace(/[^\w-]+/g, "_"))}.mp4">Baixar</a>` : ""}
+        ${v.legenda_post ? `<button class="btn sec mini" data-a="leg">Copiar legenda</button>` : ""}
+        ${v.status === "pronto" || v.status === "erro" ? `<button class="btn sec mini" data-a="refazer">Refazer</button>` : ""}
+        <button class="btn perigo mini" data-a="apagar">Apagar</button></div></div></div>`).join("")
+    : `<div class="vazio">Nenhum vídeo ainda. Vá em <b>Criar</b>.</div>`;
+  $("#lista-videos").querySelectorAll("button[data-a]").forEach(b => b.onclick = async () => {
+    const id = b.closest(".video").dataset.id, v = vs.find(x => x.id === id);
+    if (b.dataset.a === "leg") { await navigator.clipboard.writeText(v.legenda_post); toast("Legenda copiada"); }
+    if (b.dataset.a === "refazer") { await api(`/api/videos/${id}/refazer`, {method:"POST"}); est.ultimaLista = null; carregarVideos(); }
+    if (b.dataset.a === "apagar" && confirm("Apagar este vídeo?")) { await api(`/api/videos/${id}`, {method:"DELETE"}); est.ultimaLista = null; carregarVideos(); }
+  });
+}
+setInterval(() => {
+  const tocando = [...document.querySelectorAll("#lista-videos video")].some(v => !v.paused);
+  if (!tocando) carregarVideos().catch(() => {});
+}, 2500);
+
+// ------------------------------------------------------------ moldes
+async function carregarMoldes() {
+  const r = await api("/api/moldes"); est.moldes = r.moldes;
+  $("#lista-moldes").innerHTML = r.moldes.map(m => cartaoMolde(m, false)).join("");
+  $("#lista-moldes").querySelectorAll(".molde").forEach(d => d.onclick = () => editarMolde(d.dataset.id));
+  $("#tarefas-moldes").innerHTML = r.tarefas.filter(t => t.status !== "pronto" || Date.now()).map(t =>
+    `<div class="aviso" style="margin-top:10px">${esc(t.nome)}: ${t.status === "analisando" ? "a IA está olhando os exemplos (1 a 2 minutos)..." : t.status === "pronto" ? "molde criado ✔" : "erro: " + esc(t.erro)}</div>`).join("");
+  if (r.tarefas.some(t => t.status === "analisando")) setTimeout(() => est.aba === "moldes" && carregarMoldes(), 4000);
+}
+$("#bt-novo-molde").onclick = async () => {
+  const fs = $("#nm-arquivos").files, nome = $("#nm-nome").value.trim();
+  if (!nome || !fs.length) return toast("Dê um nome e escolha de 1 a 3 vídeos.");
+  const fd = new FormData(); fd.append("nome", nome); [...fs].slice(0, 3).forEach(f => fd.append("arquivos", f));
+  const bt = $("#bt-novo-molde"); bt.disabled = true; bt.textContent = "Enviando...";
+  try { await api("/api/moldes", {method:"POST", body:fd}); $("#nm-nome").value = ""; $("#nm-arquivos").value = ""; carregarMoldes(); }
+  catch (e) { toast(e.message); }
+  bt.disabled = false; bt.textContent = "Criar molde";
+};
+async function editarMolde(id) {
+  const m = await api(`/api/moldes/${encodeURIComponent(id)}`), c = m.cores || {}, r = m.roteiro || {};
+  const cor = (k, t) => `<div><label class="campo">${t}</label><div class="cor-campo"><input type="color" data-cor="${k}" value="${/^#[0-9a-f]{6}$/i.test(c[k] || "") ? c[k] : "#888888"}"><span>${esc(c[k] || "")}</span></div></div>`;
+  $("#form-molde").innerHTML = `<h2>${esc(m.nome)}</h2><p class="sub">${esc(m.descricao || "")}</p>
+    <div class="linha"><div><label class="campo">Nome</label><input name="nome" value="${esc(m.nome)}"></div><div><label class="campo">Marca (canto da tela)</label><input name="marca" value="${esc(m.marca || "")}"></div></div>
+    <div class="linha">${cor("fundo", "Fundo")}${cor("texto", "Texto")}${cor("destaque", "Destaque")}${cor("destaque2", "Risco/alerta")}</div>
+    <div class="linha"><div><label class="campo">Formato</label><select name="formato"><option value="vertical">Vertical (tela cheia)</option><option value="monitor" ${m.formato === "monitor" ? "selected" : ""}>Tela filmada (monitor na mesa)</option></select></div>
+      <div><label class="campo">Voz</label><select name="voz">${Object.entries(est.vozes).map(([k, v]) => `<option value="${k}" ${m.voz === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></div></div>
+    <div class="linha"><div><label class="campo">Velocidade da voz</label><select name="velocidade">${["+0%", "+6%", "+10%", "+15%"].map(v => `<option ${m.velocidade === v ? "selected" : ""}>${v}</option>`).join("")}</select></div>
+      <div><label class="campo">Música</label><select name="musica"><option value="pulso">Pulso (sintetizador)</option><option value="lofi" ${m.musica === "lofi" ? "selected" : ""}>Lo-fi (piano)</option></select></div></div>
+    <label class="campo">Faixa de texto em cima (só no formato tela filmada)</label><input name="topo_texto" value="${esc(m.topo_texto || "")}" placeholder="Ex.: Vídeo 100% feito com IA">
+    <label class="campo"><input type="checkbox" name="cursores" ${m.cursores ? "checked" : ""} style="width:auto"> Cursores "editando" passeando pela tela</label>
+    <label class="campo">Tom do roteiro</label><input name="tom" value="${esc(r.tom || "")}">
+    <label class="campo">Como começa (gancho)</label><input name="gancho" value="${esc(r.gancho || "")}">
+    <div class="linha"><div><label class="campo">Chamada final</label><input name="cta" value="${esc(r.cta || "Comenta {PALAVRA}")}"></div><div><label class="campo">Duração típica (s)</label><input name="duracao_seg" type="number" value="${r.duracao_seg || 40}"></div></div>
+    <label class="campo">Avatar (foto ou desenho PNG do apresentador; aparece nas cenas de avatar)</label><input type="file" id="m-avatar" accept="image/*">
+    <p style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn" value="salvar">Salvar</button><button class="btn sec" value="duplicar">Duplicar</button>
+    <button class="btn perigo" value="apagar">Apagar</button><button class="btn sec" value="fechar">Fechar</button></p>`;
+  $("#form-molde").querySelectorAll("input[type=color]").forEach(i => i.oninput = () => i.nextElementSibling.textContent = i.value);
+  const dlg = $("#dlg-molde"); dlg.showModal();
+  dlg.onclose = async () => {
+    const acao = dlg.returnValue, f = $("#form-molde");
+    try {
+      if (acao === "salvar") {
+        const v = n => f.querySelector(`[name=${n}]`);
+        const cores = {}; f.querySelectorAll("[data-cor]").forEach(i => cores[i.dataset.cor] = i.value);
+        await api(`/api/moldes/${encodeURIComponent(id)}`, {method:"PUT", body:{ nome:v("nome").value, marca:v("marca").value, cores,
+          formato:v("formato").value, voz:v("voz").value, velocidade:v("velocidade").value, musica:v("musica").value, topo_texto:v("topo_texto").value,
+          cursores:v("cursores").checked, roteiro:{ ...r, tom:v("tom").value, gancho:v("gancho").value, cta:v("cta").value, duracao_seg:+v("duracao_seg").value } }});
+        const av = $("#m-avatar").files[0];
+        if (av) { const fd = new FormData(); fd.append("arquivo", av); await api(`/api/moldes/${encodeURIComponent(id)}/avatar`, {method:"POST", body:fd}); }
+        toast("Molde salvo");
+      } else if (acao === "duplicar") {
+        const nome = prompt("Nome do novo molde:", m.nome + " (cópia)"); if (!nome) return;
+        const fd = new FormData(); fd.append("novo_nome", nome); await api(`/api/moldes/${encodeURIComponent(id)}/duplicar`, {method:"POST", body:fd}); toast("Molde duplicado");
+      } else if (acao === "apagar" && confirm("Apagar este molde?")) { await api(`/api/moldes/${encodeURIComponent(id)}`, {method:"DELETE"}); }
+    } catch (e) { toast(e.message); }
+    carregarMoldes(); carregarEstado();
+  };
+}
+
+carregarEstado().catch(e => toast(e.message));
+</script>
+</body>
+</html>

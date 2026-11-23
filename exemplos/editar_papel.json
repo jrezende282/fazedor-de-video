@@ -1,0 +1,10 @@
+{"titulo": "Vídeo sem saber editar", "legenda_post": "Você não precisa saber editar pra postar vídeo ✍️ #ia #edicao #criadordeconteudo",
+ "cenas": [
+  {"fala": "Você não precisa saber *editar* pra fazer vídeo.", "visual": {"tipo": "avatar", "texto": "sério, nem abrir o editor", "etiqueta": "revisão-01"}},
+  {"fala": "Primeiro, você *escreve* o que quer falar.", "visual": {"tipo": "icone", "icone": "lapis", "rotulo": "só o texto"}},
+  {"fala": "Depois a IA transforma o texto em *cenas*.", "visual": {"tipo": "fluxo", "itens": [{"rotulo": "Texto", "icone": "texto"}, {"rotulo": "Cenas", "icone": "filme"}]}},
+  {"fala": "Ela grava a *narração* e anima tudo sozinha.", "visual": {"tipo": "cards", "itens": [{"rotulo": "Voz", "icone": "microfone"}, {"rotulo": "Animação", "icone": "brilho"}, {"rotulo": "Legenda", "icone": "legenda"}]}},
+  {"fala": "Em vez de passar a *noite* no editor...", "visual": {"tipo": "riscado", "antes": "a noite no editor", "icone": "relogio"}},
+  {"fala": "você só *revisa* e posta.", "visual": {"tipo": "lista", "itens": ["Revisa", "Posta", "Responde os comentários"]}},
+  {"fala": "Quer testar? Comenta *VÍDEO*.", "visual": {"tipo": "cta", "palavra": "VÍDEO"}}
+ ]}

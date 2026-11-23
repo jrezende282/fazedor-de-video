@@ -1,0 +1,23 @@
+{
+ "nome": "Neon (tela de sistema)",
+ "descricao": "Fundo escuro com verde neon, cara de tela de sistema: cantinhos, REC, cards e texto com brilho.",
+ "base": "neon",
+ "cores": {"fundo": "#040905", "fundo2": "#0c1d10", "texto": "#eaffea", "suave": "rgba(210,255,220,.5)",
+           "destaque": "#3dff6e", "destaque2": "#ff3b5c", "linha": "rgba(80,255,120,.28)"},
+ "fontes": {"titulo": "'Space Grotesk', sans-serif", "texto": "'Inter', sans-serif", "mono": "'JetBrains Mono', monospace"},
+ "marca": "ANIMATIK",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+10%",
+ "musica": "pulso",
+ "volume_musica": 0.5,
+ "roteiro": {
+  "tom": "direto, confiante, frases curtas de impacto, como quem mostra um bastidor de tecnologia",
+  "gancho": "começa com uma afirmação forte ou surpreendente em até 8 palavras",
+  "duracao_seg": 40,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": ["titulo", "comando", "cards", "fluxo", "riscado", "numero", "grafico", "icone"]
+ }
+}

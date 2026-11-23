@@ -1,0 +1,25 @@
+{
+ "nome": "Papel (caneta azul + avatar)",
+ "descricao": "Fundo creme de papel, texto preto com palavra em azul itálico, avatar desenhado e cursores editando.",
+ "base": "papel",
+ "cores": {"fundo": "#f1e8d6", "texto": "#1d1b18", "suave": "#857b6b", "destaque": "#2f5bd8", "destaque2": "#e0553d", "linha": "rgba(29,27,24,.25)"},
+ "fontes": {"titulo": "'Instrument Serif', serif", "texto": "'Inter', sans-serif", "mono": "'JetBrains Mono', monospace",
+            "destaque": "'Instrument Serif', serif", "mao": "'Caveat', cursive"},
+ "marca": "meu_video",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": true,
+ "etiquetas_cursor": ["cena-01", "zoom-01", "legenda-02"],
+ "avatar": "",
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+6%",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "conversa próxima e simples, como um amigo explicando, frases curtas",
+  "gancho": "começa quebrando uma crença comum do público em até 9 palavras",
+  "duracao_seg": 40,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": ["avatar", "titulo", "cards", "fluxo", "lista", "riscado", "icone"]
+ }
+}

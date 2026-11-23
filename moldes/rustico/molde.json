@@ -1,0 +1,25 @@
+{
+ "nome": "Rústico (desenho a lápis)",
+ "descricao": "Papel kraft, desenhos com traço de lápis que treme de leve, cores de terra. Bom para histórias e para explicar produtos.",
+ "base": "rustico",
+ "cores": {"fundo": "#e8d7b4", "texto": "#3a2716", "suave": "rgba(58,39,22,.6)", "destaque": "#b4402a", "destaque2": "#f0b73a", "linha": "rgba(58,39,22,.3)"},
+ "fontes": {"titulo": "'Caveat', cursive", "texto": "'Inter', sans-serif", "mono": "'JetBrains Mono', monospace", "destaque": "'Caveat', cursive", "mao": "'Caveat', cursive"},
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "rabisco": 4,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+3%",
+ "tom_voz": "-2Hz",
+ "musica": "violao",
+ "volume_musica": 0.6,
+ "roteiro": {
+  "tom": "contador de história do interior: simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "começa com uma cena que o público imagina na hora (um problema concreto)",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "estrutura": "problema -> apresenta o produto -> como funciona em 2 ou 3 passos -> resultado/antes e depois -> chamada",
+  "visuais_preferidos": ["ilustracao", "titulo", "riscado", "numero", "fluxo", "cta"]
+ }
+}

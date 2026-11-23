@@ -1,0 +1,16 @@
+# ============================================================
+#  ANIMATIK - configuração
+#  Quase tudo se ajusta pelo painel (http://localhost:8100).
+# ============================================================
+
+painel:
+  porta: 8100
+
+ia:
+  # Com a chave da API do Claude (variável ANTHROPIC_API_KEY), o Animatik escreve o roteiro a partir de um tema
+  # e lê o estilo dos vídeos de exemplo. Sem a chave, você escreve o texto e ele monta o vídeo do mesmo jeito.
+  modelo: claude-opus-5-5
+  esforco: medium              # low | medium | high (mais alto = pensa mais, demora e custa mais)
+
+video:
+  fps: 30                      # 30 é o padrão do TikTok/Reels

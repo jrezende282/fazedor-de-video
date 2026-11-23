@@ -1,0 +1,12 @@
+{"titulo": "Robô que corta live sozinho", "legenda_post": "Fiz um robô que corta live sozinho 🤖✂️ #ia #clipes #automação #gta6",
+ "cenas": [
+  {"fala": "Eu criei um *robô* que assiste live por mim.", "visual": {"tipo": "titulo", "texto": "ROBÔ", "sub": "ASSISTINDO 24H"}},
+  {"fala": "Ele fica de olho em vários *streamers* ao mesmo tempo.", "visual": {"tipo": "cards", "itens": [{"rotulo": "Canal 01", "icone": "live", "sub": "AO VIVO"}, {"rotulo": "Canal 02", "icone": "live", "sub": "AO VIVO"}, {"rotulo": "Canal 03", "icone": "live", "sub": "AO VIVO"}]}},
+  {"fala": "Quando o *chat explode*, ele entende que aconteceu alguma coisa.", "visual": {"tipo": "grafico", "titulo": "MENSAGENS NO CHAT", "rotulo": "x10"}},
+  {"fala": "Aí ele *corta* o momento, coloca legenda, música e gancho.", "visual": {"tipo": "fluxo", "itens": [{"rotulo": "Corte", "icone": "tesoura"}, {"rotulo": "Legenda", "icone": "legenda"}, {"rotulo": "Música", "icone": "musica"}, {"rotulo": "Gancho", "icone": "raio"}]}},
+  {"fala": "E não, isso não é *plugin*.", "visual": {"tipo": "titulo", "texto": "plugin", "riscar": true}},
+  {"fala": "É só um pedido em *português*.", "visual": {"tipo": "comando", "titulo": "NOVO PEDIDO", "rotulo": "TOKENS 037", "texto": "corta o melhor momento da live e deixa viral", "destaque": ["melhor", "viral"]}},
+  {"fala": "Em vez de passar a noite *editando*...", "visual": {"tipo": "riscado", "antes": "8 horas editando", "icone": "relogio", "depois": "pronto sozinho", "icone_depois": "check"}},
+  {"fala": "o clipe fica pronto em *dois minutos*.", "visual": {"tipo": "numero", "valor": "2", "sufixo": "min", "rotulo": "POR CLIPE"}},
+  {"fala": "Quer o passo a passo? Comenta *ROBÔ*.", "visual": {"tipo": "cta", "palavra": "ROBÔ"}}
+ ]}
