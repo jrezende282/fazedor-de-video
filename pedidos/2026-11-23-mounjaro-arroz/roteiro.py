@@ -65,6 +65,11 @@ def cida(cx, pes, s=1.0, larg=1.0, rosto="feliz", bracos="baixo", extra=""):
     ombro = w * .8
     if bracos == "alto":
         br = f'<path d="M{cx - ombro:.0f} {corpo_top + 30 * s:.0f} l-{60 * s:.0f} -{100 * s:.0f} M{cx + ombro:.0f} {corpo_top + 30 * s:.0f} l{60 * s:.0f} -{100 * s:.0f}" stroke-width="{14 * s:.0f}" fill="none"/>'
+    elif bracos == "forca":
+        br = (f'<path d="M{cx - ombro:.0f} {corpo_top + 30 * s:.0f} q-{40 * s:.0f} {60 * s:.0f} -{20 * s:.0f} {110 * s:.0f}" stroke-width="{14 * s:.0f}" fill="none"/>'
+              f'<path d="M{cx + ombro:.0f} {corpo_top + 30 * s:.0f} l{80 * s:.0f} {10 * s:.0f} l{10 * s:.0f} -{80 * s:.0f}" stroke-width="{14 * s:.0f}" fill="none"/>'
+              f'<ellipse cx="{cx + ombro + 45 * s:.0f}" cy="{corpo_top + 22 * s:.0f}" rx="{30 * s:.0f}" ry="{20 * s:.0f}" fill="{PELE}"/>'
+              f'<circle cx="{cx + ombro + 90 * s:.0f}" cy="{corpo_top - 60 * s:.0f}" r="{16 * s:.0f}" fill="{PELE}"/>')
     elif bracos == "joinha":
         br = (f'<path d="M{cx - ombro:.0f} {corpo_top + 30 * s:.0f} l-{30 * s:.0f} {110 * s:.0f} M{cx + ombro:.0f} {corpo_top + 30 * s:.0f} l{70 * s:.0f} -{40 * s:.0f}" stroke-width="{14 * s:.0f}" fill="none"/>'
               f'<path d="M{cx + ombro + 70 * s:.0f} {corpo_top - 10 * s:.0f} v-{36 * s:.0f}" stroke-width="{12 * s:.0f}" fill="none"/>')
@@ -177,13 +182,25 @@ def cena7():
 
 
 def cena8():
-    """Final: coração, ela fazendo joinha e a mensagem."""
+    """Continue firme: coração, ela fazendo joinha."""
     confete = "".join(f'<rect x="{150 + (k * 61) % 700}" y="{170 + (k * 37) % 160}" width="18" height="10" fill="{[VERDE2, AMAR, VERM, CEU][k % 4]}" stroke="none" '
                       f'data-entra="cai" data-t="{0.3 + 0.04 * k:.2f}" data-d="0.7"/>' for k in range(22))
     return svg(chao(840) + coracao(500, 470, 2.6, ROSA2, 'data-entra="zoom" data-t="0" data-d="0.5" data-pulsa="0.04"') + confete
                + cida(500, 840, 1.0, .45, "feliz", "joinha", 'data-entra="pop" data-t="0.15" data-d="0.6"')
-               + texto(500, 150, "tudo vai dar certo", 80, VERM, 'data-entra="pop" data-t="1.0"')
-               + '<g data-som="impacto" data-t="0.15"></g>', vb="100 90 800 780")
+               + texto(500, 150, "continue firme!", 84, VERM, 'data-entra="pop" data-t="0.6"')
+               + texto(500, 905, "(com acompanhamento médico)", 46, TINTA, 'data-entra="fade" data-t="0.9"')
+               + '<g data-som="impacto" data-t="0.15"></g>', vb="100 90 800 840")
+
+
+def cena10():
+    """Final: ela mostrando o muque, brilhos e 'tudo vai dar certo'."""
+    brilhos = "".join(brilho(x, y, r, f'data-entra="pop" data-t="{t}" data-pulsa="0.1"')
+                      for x, y, r, t in [(250, 330, 34, 0.5), (760, 300, 30, 0.7), (230, 620, 24, 0.9), (780, 600, 26, 1.0)])
+    raios = "".join(f'<path d="M{500 + 300 * math.cos(math.radians(a)):.0f} {520 + 300 * math.sin(math.radians(a)):.0f} '
+                    f'l{50 * math.cos(math.radians(a)):.0f} {50 * math.sin(math.radians(a)):.0f}" fill="none" stroke="{AMAR}" stroke-width="10" '
+                    f'data-entra="desenha" data-t="0.3" data-d="0.4"/>' for a in range(190, 351, 20))
+    return svg(chao(840) + raios + brilhos + cida(500, 840, 1.05, .45, "feliz", "forca", 'data-entra="pop" data-t="0" data-d="0.6" data-som="impacto"')
+               + texto(500, 150, "tudo vai dar certo", 84, VERM, 'data-entra="pop" data-t="1.2"'), vb="100 90 800 780")
 
 
 CENAS = [
@@ -194,11 +211,13 @@ CENAS = [
     {"fala": "E o resto do prato? *Salada*, salada e mais salada.", "visual": {"tipo": "ilustracao", "svg": cena5()}},
     {"fala": "Mas a balança foi *descendo*, descendo...", "visual": {"tipo": "ilustracao", "svg": cena6()}},
     {"fala": "E olha ela aí: *magrinha*!", "visual": {"tipo": "ilustracao", "svg": cena7()}},
-    {"fala": "Continua firme no seu Mounjaro, com acompanhamento médico, que *tudo vai dar certo*!", "visual": {"tipo": "ilustracao", "svg": cena8()}},
+    {"fala": "Continue firme no *Mounjaro*!", "visual": {"tipo": "ilustracao", "svg": cena8()}},
+    {"fala": "Cada dia é uma *vitória*.", "visual": {"tipo": "lista", "itens": ["Segunda: venci", "Terça: venci", "Quarta: venci"]}},
+    {"fala": "Você é muito mais *forte* do que imagina. Tudo vai dar certo!", "visual": {"tipo": "ilustracao", "svg": cena10()}},
 ]
 
 roteiro = {"titulo": "Flávia e o Mounjaro",
-           "legenda_post": "De um quilo de arroz para quarenta gramas 🍚➡️🥗 Continua firme, que tudo vai dar certo! 💪 #mounjaro #emagrecimento #antesedepois #motivacao #humor",
+           "legenda_post": "De um quilo de arroz para quarenta gramas 🍚➡️🥗 Continue firme! Cada dia é uma vitória, e tudo vai dar certo 💪 #mounjaro #emagrecimento #antesedepois #motivacao #humor",
            "cenas": CENAS}
 Path(__file__).with_name("roteiro.json").write_text(json.dumps(roteiro, ensure_ascii=False), encoding="utf-8")
 print("ok", len(CENAS), "cenas")
