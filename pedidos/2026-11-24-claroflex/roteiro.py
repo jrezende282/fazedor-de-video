@@ -161,7 +161,7 @@ CENAS = [
     {"fala": "Sua cortina de vidro ainda *emperra* assim?", "visual": {"tipo": "ilustracao", "svg": cena1(), "onomatopeia": "ARGH!"}, "pausa": 0.35},
     {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2(), "onomatopeia": "HMM?"}},
     {"fala": "Com o tempo, ela emperra, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
-    {"fala": "Foi aí que a ClaroFlex, uma empresa europeia, da *Espanha*, desenvolveu um sistema que acaba com isso.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "empresa europeia · Espanha", "onomatopeia": "UAU!"}},
+    {"fala": "Foi aí que a ClaroFlex, uma empresa *europeia*, desenvolveu um sistema que acaba com isso.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "empresa europeia", "onomatopeia": "UAU!"}},
     {"fala": "Sem roldanas: o vidro desliza no *trilho inferior*.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
     {"fala": "E os painéis deslizam e abrem na lateral, em *L*, deixando a sacada livre.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
@@ -171,7 +171,7 @@ CENAS = [
 ]
 
 roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
-           "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex, empresa europeia da Espanha, desenvolveu um sistema sem roldanas: "
+           "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex, empresa europeia, desenvolveu um sistema sem roldanas: "
                             "o vidro desliza no trilho inferior e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
                             "Faça seu orçamento no link da bio! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
            "cenas": CENAS}
