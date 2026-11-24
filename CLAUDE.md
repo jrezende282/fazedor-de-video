@@ -43,7 +43,10 @@ export ANIMATIK_CHROMIUM=/opt/pw-browsers/chromium   # Chromium que já vem na m
 ### Tipos de visual prontos
 titulo (texto, riscar, sub) · comando (texto, titulo, destaque[]) · cards (itens[{rotulo, icone, sub}]) ·
 fluxo (itens) · riscado (rotulo, antes, depois, icone, icone_depois) · numero (valor, sufixo, porcento, rotulo) ·
-grafico (pontos[], titulo, rotulo) · lista (itens) · icone (icone, rotulo) · avatar (texto, etiqueta) · cta (palavra, rotulo).
+grafico (pontos[], titulo, rotulo) · lista (itens) · icone (icone, rotulo) · avatar (texto, etiqueta) · cta (palavra, rotulo, logo).
+**Marca/empresa**: use `{"tipo": "marca", "logo": "<svg da logo>", "sub": "frase curta"}` e `cta` com `"logo"`. A logo fica FORA
+do desenho, então nenhum estilo muda as cores dela (ex.: `logo_claroflex()` em `pedidos/2026-11-24-claroflex/roteiro.py`).
+Sem som de "whoosh" entre cenas (ele pediu áudio fluido); só volta se o molde tiver `"som_transicao": true`.
 Ícones: ver `web/icones.js`.
 
 ### Ilustração (o diferencial)

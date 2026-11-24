@@ -259,3 +259,14 @@ body { font-family: var(--f-texto); color: var(--texto); -webkit-font-smoothing:
 .tema-rustico .aneis i { border-color: color-mix(in srgb, var(--texto) 15%, transparent); border-style: dashed; }
 .tema-rustico .flash { display: none; }
 .tema-rustico .cena { padding-top: calc(var(--u) * 34); }
+
+/* ============================================================ marca (logo da empresa) */
+.v-marca { position: relative; display: flex; flex-direction: column; align-items: center; gap: calc(var(--u) * 4); }
+.logo-marca { position: relative; width: calc(var(--u) * 84); overflow: hidden; border-radius: calc(var(--u) * 2); box-shadow: 0 calc(var(--u) * 1.5) calc(var(--u) * 4) rgba(0,0,0,.28); }
+.logo-marca svg { display: block; width: 100%; height: auto; }
+.reflexo-marca { position: absolute; top: 0; bottom: 0; width: 30%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); pointer-events: none; }
+.sub-marca { font: 700 calc(var(--u) * 5.4) var(--f-titulo); color: var(--destaque); letter-spacing: .02em; }
+.brilhos-marca { position: absolute; left: 50%; top: 40%; width: 0; height: 0; }
+.brilhos-marca i { position: absolute; left: calc(var(--u) * -2.5); top: calc(var(--u) * -2.5); width: calc(var(--u) * 5); height: calc(var(--u) * 5); background: #f0b73a;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.v-cta .cta-logo { width: calc(var(--u) * 70); margin-bottom: calc(var(--u) * 3); }

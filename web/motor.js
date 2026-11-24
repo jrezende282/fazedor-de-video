@@ -407,17 +407,35 @@ VISUAIS.avatar = (caixa, v) => {
 };
 
 VISUAIS.cta = (caixa, v) => {
-  const b = el("div", "v-cta", `<div class="peq">${esc(v.rotulo || "COMENTA")}</div><div class="palavra">${esc(String(v.palavra || "").toUpperCase())}</div><div class="balao-ico">${icone("chat")}</div>`);
+  const b = el("div", "v-cta", `${v.logo ? `<div class="logo-marca cta-logo">${v.logo}</div>` : ""}<div class="peq">${esc(v.rotulo || "COMENTA")}</div><div class="palavra">${esc(String(v.palavra || "").toUpperCase())}</div><div class="balao-ico">${icone("chat")}</div>`);
   caixa.appendChild(b);
   som(0.15, "impacto"); som(0.5, "pop", { tom: 4 });
-  const peq = b.querySelector(".peq"), pal = b.querySelector(".palavra"), bi = b.querySelector(".balao-ico");
+  const peq = b.querySelector(".peq"), pal = b.querySelector(".palavra"), bi = b.querySelector(".balao-ico"), lg = b.querySelector(".cta-logo");
   return (tl) => {
+    if (lg) { const l = saida(prog(tl, 0, 0.4)); lg.style.opacity = l; lg.style.transform = `translateY(${(1 - l) * -30}px)`; }
     const a = saida(prog(tl, 0, 0.3)); peq.style.opacity = a;
     const x = mola(prog(tl, 0.15, 0.7));
     pal.style.opacity = lim(x * 1.4); pal.style.transform = `scale(${misturar(1.8, 1, lim(x))})`;
     pal.style.setProperty("--brilho", 0.7 + 0.3 * Math.sin(tl * 5));
     const y = mola(prog(tl, 0.5, 0.5));
     bi.style.transform = `translateY(${Math.sin(tl * 4) * 10}px) scale(${y})`;
+  };
+};
+
+// ------------------------------------------------------------------ marca (logo da empresa, cores intocadas)
+VISUAIS.marca = (caixa, v) => {
+  const b = el("div", "v-marca", `<div class="brilhos-marca">${[0, 1, 2, 3, 4].map(k => `<i style="--k:${k}"></i>`).join("")}</div>
+    <div class="logo-marca">${v.logo || ""}<span class="reflexo-marca"></span></div>${v.sub ? `<div class="sub-marca">${esc(v.sub)}</div>` : ""}`);
+  caixa.appendChild(b);
+  som(0.05, "impacto"); if (v.sub) som(0.6, "pop", { tom: 2 });
+  const lg = b.querySelector(".logo-marca"), sub = b.querySelector(".sub-marca"), ref = b.querySelector(".reflexo-marca");
+  const brilhos = [...b.querySelectorAll(".brilhos-marca i")];
+  return (tl) => {
+    const x = mola(prog(tl, 0.05, 0.6));
+    lg.style.opacity = lim(x * 1.5); lg.style.transform = `scale(${misturar(0.6, 1, lim(x))})`;
+    ref.style.transform = `translateX(${misturar(-120, 260, saida(prog(tl, 0.7, 0.8)))}%) skewX(-20deg)`;
+    if (sub) { const y = saida(prog(tl, 0.55, 0.4)); sub.style.opacity = y; sub.style.transform = `translateY(${(1 - y) * 20}px)`; }
+    brilhos.forEach((e, k) => { const f = mola(prog(tl, 0.4 + 0.08 * k, 0.4)); e.style.transform = `rotate(${k * 72 + tl * 20}deg) translateY(calc(var(--u) * -34)) scale(${f * (0.8 + 0.2 * Math.sin(tl * 5 + k))})`; });
   };
 };
 
@@ -515,7 +533,7 @@ const CENAS = D.cenas.map((cena, i) => {
   box.append(topo, meio);
   const tipo = (cena.visual && cena.visual.tipo) || "nada";
   CENA_ATUAL = cena;
-  if (i > 0) som(-0.05, "transicao");
+  if (i > 0 && M.som_transicao) som(-0.05, "transicao");  // desligado: o áudio fica fluido
   if (tipo === "titulo" && !cena.legenda_junto) box.classList.add("so-titulo");
   const legenda = montarLegenda(cena, topo);
   const visual = (VISUAIS[tipo] || VISUAIS.nada)(interno, cena.visual || {}, cena);

@@ -66,6 +66,15 @@ def pista_baixo(x0=100, x1=900, y=700):
     return f'<rect x="{x0}" y="{y}" width="{x1 - x0}" height="30" rx="8" fill="{ALUM}"/><path d="M{x0} {y + 32} h{x1 - x0}" stroke-width="8" fill="none"/>'
 
 
+def logo_claroflex() -> str:
+    """Logo da ClaroFlex como na imagem enviada: fundo preto, retângulo vermelho vazado, CLAROFLEX em branco e ®."""
+    return ('<svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">'
+            '<rect width="700" height="140" fill="#0d0d0d"/>'
+            '<rect x="40" y="44" width="118" height="54" rx="4" fill="none" stroke="#e3262f" stroke-width="10"/>'
+            '<text x="184" y="96" font-family="Inter" font-weight="400" font-size="66" letter-spacing="3" fill="#ffffff">CLAROFLEX</text>'
+            '<text x="652" y="58" font-family="Inter" font-weight="400" font-size="20" fill="#ffffff">®</text></svg>')
+
+
 # ---------------------------------------------------------------- cenas
 def cena1():
     """Gancho: a pessoa empurrando o vidro emperrado, que treme. TRAVOU!"""
@@ -111,7 +120,7 @@ def cena5():
     sem = (f'<g data-entra="pop" data-t="0.3"><circle cx="230" cy="170" r="56" fill="#ffffff"/><circle cx="230" cy="170" r="24" fill="#8f97a1"/>'
            f'<path d="M180 120 l100 100" stroke="{VERM}" stroke-width="14" fill="none"/></g>'
            + texto(250, 290, "sem roldana", 62, VERM, 'data-entra="pop" data-t="0.5"'))
-    return svg(pista_baixo(100, 900, 720) + painel(560, 260, 200, 460, 'data-entra="dir" data-t="0" data-d="0.5" data-mover="-180,0" data-som="transicao"')
+    return svg(pista_baixo(100, 900, 720) + painel(560, 260, 200, 460, 'data-entra="dir" data-t="0" data-d="0.5" data-mover="-180,0"')
                + sem + setas + texto(520, 840, "peso apoiado no chão", 66, VERDE, 'data-entra="pop" data-t="1.4"'), vb="120 90 820 780")
 
 
@@ -135,16 +144,16 @@ def cena8():
 
 
 CENAS = [
-    {"fala": "Sua cortina de vidro ainda *emperra* assim?", "visual": {"tipo": "ilustracao", "svg": cena1()}, "pausa": 0.35},
-    {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2()}},
-    {"fala": "Com o tempo, ela enferruja, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3()}, "pausa": 0.35},
-    {"fala": "A *ClaroFlex* resolveu isso com um sistema europeu.", "visual": {"tipo": "ilustracao", "svg": cena4()}},
-    {"fala": "Sem roldanas: o vidro desliza numa *pista* lá embaixo, com o peso apoiado no chão.", "visual": {"tipo": "ilustracao", "svg": cena5()}},
-    {"fala": "E os painéis deslizam e encostam de lado, deixando a sacada *livre*.", "visual": {"tipo": "ilustracao", "svg": cena6()}},
+    {"fala": "Sua cortina de vidro ainda *emperra* assim?", "visual": {"tipo": "ilustracao", "svg": cena1(), "onomatopeia": "ARGH!"}, "pausa": 0.35},
+    {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2(), "onomatopeia": "HMM?"}},
+    {"fala": "Com o tempo, ela enferruja, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
+    {"fala": "A *ClaroFlex* resolveu isso com um sistema europeu.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "sistema europeu", "onomatopeia": "UAU!"}},
+    {"fala": "Sem roldanas: o vidro desliza numa *pista* lá embaixo, com o peso apoiado no chão.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
+    {"fala": "E os painéis deslizam e encostam de lado, deixando a sacada *livre*.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
-                                                                               "icone": "engrenagem", "depois": "vidro que desliza", "icone_depois": "check"}},
-    {"fala": "Menos manutenção, mais *vista*.", "visual": {"tipo": "ilustracao", "svg": cena8()}},
-    {"fala": "Quer na sua sacada? Comenta *CLAROFLEX*.", "visual": {"tipo": "cta", "palavra": "CLAROFLEX", "rotulo": "COMENTA"}},
+                                                                               "icone": "engrenagem", "depois": "vidro que desliza", "icone_depois": "check", "onomatopeia": "TCHAU!"}},
+    {"fala": "Menos manutenção, mais *vista*.", "visual": {"tipo": "ilustracao", "svg": cena8(), "onomatopeia": "AAAH!"}},
+    {"fala": "Quer na sua sacada? Comenta *CLAROFLEX*.", "visual": {"tipo": "cta", "palavra": "CLAROFLEX", "rotulo": "COMENTA", "logo": logo_claroflex(), "onomatopeia": "BORA!"}},
 ]
 
 roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
