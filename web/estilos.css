@@ -23,7 +23,7 @@
 /* ---------------- 1. cartoon chapado: cores lisas, sem contorno */
 .acab-chapado .ceu { inset: 0; background: linear-gradient(#fbe9dc, #f6d3bd 70%); }
 .acab-chapado .sol { width: calc(var(--u) * 16); height: calc(var(--u) * 16); border-radius: 50%; background: #e2674a; right: calc(var(--u) * 12); top: calc(var(--u) * 14); }
-.acab-chapado svg.desenho *:not([fill="none"]) { stroke: none !important; }
+.acab-chapado svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-chapado svg.desenho [fill="none"] { stroke: #2b3245 !important; }
 .acab-chapado .legenda { font-family: "Fredoka", var(--f-texto); font-weight: 700; letter-spacing: 0; }
 
@@ -52,7 +52,7 @@
 .acab-recorte .ceu { inset: 0; background: linear-gradient(#cfe6ec, #e9f1e4); }
 .acab-recorte .textura { inset: 0; opacity: .5; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/><feColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .18 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"); }
 .acab-recorte .sol { width: calc(var(--u) * 15); height: calc(var(--u) * 15); border-radius: 50%; background: #f4c84a; right: calc(var(--u) * 12); top: calc(var(--u) * 13); box-shadow: 5px 8px 0 rgba(59,42,20,.25); }
-.acab-recorte svg.desenho *:not([fill="none"]) { stroke: none !important; }
+.acab-recorte svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-recorte svg.desenho [fill="none"] { stroke: #3a2716 !important; stroke-width: 7 !important; }
 .acab-recorte .legenda { font-family: "Fredoka", var(--f-texto); font-weight: 700; letter-spacing: 0; }
 .acab-recorte .painel { border: none; box-shadow: 5px 8px 0 rgba(59,42,20,.25); }
@@ -98,7 +98,7 @@
 /* ---------------- 9. massinha (stop motion) */
 .acab-massinha .ceu { inset: 0; background: linear-gradient(#bfe3f0, #f5ecd8); }
 .acab-massinha .textura { inset: 0; opacity: .5; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='3'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .12 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
-.acab-massinha svg.desenho *:not([fill="none"]) { stroke: none !important; }
+.acab-massinha svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-massinha svg.desenho [fill="none"] { stroke-width: 12 !important; }
 .acab-massinha .legenda { font-family: "Fredoka", var(--f-texto); font-weight: 700; letter-spacing: 0; color: #3a2a40; }
 .acab-massinha .pal.dest { color: #e2557a; }
@@ -127,7 +127,7 @@
 .acab-planta .painel { background: transparent; border-color: #f2f7ff; box-shadow: none; color: #f2f7ff; }
 
 /* ---------------- 12. low poly 3D */
-.acab-lowpoly svg.desenho *:not([fill="none"]) { stroke: none !important; }
+.acab-lowpoly svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-lowpoly .legenda { color: #fff; text-shadow: 0 3px 0 rgba(10,30,60,.35); }
 .acab-lowpoly .pal.dest { color: #ffd84a; }
 
@@ -170,7 +170,7 @@
 /* ---------------- 16. 3D de verdade */
 .acab-real3d .ceu { inset: 0; background: linear-gradient(#f6e6d6, #f1d8c0 60%, #e8c7a6); }
 .acab-real3d .piso { left: -10%; right: -10%; bottom: 0; height: 26%; background: radial-gradient(60% 50% at 50% 0%, #f8e8d8, #dcb995); }
-.acab-real3d svg.desenho *:not([fill="none"]) { stroke: none !important; }
+.acab-real3d svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-real3d svg.desenho [fill="none"] { stroke-width: 9 !important; }
 .acab-real3d .legenda { font-family: "Fredoka", var(--f-texto); font-weight: 700; color: #3a2a20; letter-spacing: 0; }
 .acab-real3d .pal.dest { color: #e2674a; }
