@@ -167,13 +167,13 @@ CENAS = [
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
                                                                                "icone": "engrenagem", "depois": "vidro que desliza", "icone_depois": "check", "onomatopeia": "TCHAU!"}},
     {"fala": "Menos manutenção, mais *vista*.", "visual": {"tipo": "ilustracao", "svg": cena8(), "onomatopeia": "AAAH!"}},
-    {"fala": "Quer na sua sacada? Comenta *CLAROFLEX*.", "visual": {"tipo": "cta", "palavra": "CLAROFLEX", "rotulo": "COMENTA", "logo": logo_claroflex(), "onomatopeia": "BORA!"}},
+    {"fala": "Quer na sua sacada? Faça seu *orçamento* no link da bio.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "orçamento no link da bio", "onomatopeia": "BORA!"}},
 ]
 
 roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
            "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex usa um sistema europeu sem roldanas: "
                             "o vidro desliza numa pista lá embaixo, com o peso apoiado no chão, e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
-                            "Comenta CLAROFLEX que a gente te chama! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
+                            "Faça seu orçamento no link da bio! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
            "cenas": CENAS}
 Path(__file__).with_name("roteiro.json").write_text(json.dumps(roteiro, ensure_ascii=False), encoding="utf-8")
 print("ok", len(CENAS), "cenas")

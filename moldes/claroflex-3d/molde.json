@@ -1,6 +1,6 @@
 {
  "nome": "ClaroFlex (3D, vermelho da marca)",
- "descricao": "Estilo 3D com o vermelho da logo ClaroFlex nos destaques e a voz 8 (Rémy).",
+ "descricao": "Estilo 3D com o vermelho da logo ClaroFlex nos destaques e a voz 1 (Antônio).",
  "base": "estilo",
  "acabamento": "real3d",
  "cores": {
@@ -21,7 +21,7 @@
  "formato": "vertical",
  "topo_texto": "",
  "cursores": false,
- "voz": "fr-FR-RemyMultilingualNeural",
+ "voz": "pt-BR-AntonioNeural",
  "velocidade": "+4%",
  "tom_voz": "+0Hz",
  "musica": "lofi",
@@ -30,7 +30,7 @@
   "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
   "gancho": "uma cena concreta que a pessoa imagina na hora",
   "duracao_seg": 30,
-  "cta": "Comenta {PALAVRA}",
+  "cta": "Quer na sua sacada? Faça seu orçamento no link da bio.",
   "visuais_preferidos": [
    "ilustracao",
    "titulo",
