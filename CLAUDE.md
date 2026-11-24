@@ -72,6 +72,7 @@ Texto dentro do desenho: `<text font-family="Caveat" ... stroke="none">`.
 - `rustico`: papel kraft, lápis, violão. Para histórias e produtos (padrão).
 - `claroflex-3d`: vídeos da ClaroFlex (sogro): 3D, destaque no vermelho da logo (#e3262f), voz 1 Antônio. Ele pediu: não dizer
   "enferruja"; a cortina desliza e abre na lateral em L; final = só a logo + "Faça seu orçamento no link da bio" (sem "Comenta").
+  Dar ênfase: "a ClaroFlex, uma empresa europeia, da Espanha, desenvolveu o sistema"; o vidro "desliza no trilho inferior" (nunca "no chão").
 - `neon`, `neon-tela` (tela filmada), `papel` (caneta azul + avatar).
 - **16 estilos de animação** (`est-*`, base `estilo` + `acabamento`): o MESMO desenho da ilustração muda de cara.
   Se ele pedir "no estilo X", use o molde correspondente:
