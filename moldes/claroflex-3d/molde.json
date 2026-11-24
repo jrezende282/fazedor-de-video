@@ -1,0 +1,43 @@
+{
+ "nome": "ClaroFlex (3D, vermelho da marca)",
+ "descricao": "Estilo 3D com o vermelho da logo ClaroFlex nos destaques e a voz 8 (Rémy).",
+ "base": "estilo",
+ "acabamento": "real3d",
+ "cores": {
+  "fundo": "#f1d8c0",
+  "fundo2": "#ffffff",
+  "texto": "#3a2a20",
+  "destaque": "#e3262f",
+  "destaque2": "#5b9bd5"
+ },
+ "fontes": {
+  "titulo": "'Fredoka', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Fredoka', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "fr-FR-RemyMultilingualNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

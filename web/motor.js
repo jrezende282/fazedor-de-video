@@ -478,7 +478,7 @@ VISUAIS.ilustracao = (caixa, v) => {
     const it = { e, entra: e.dataset.entra, t: +(e.dataset.t ?? 0.1), d: +(e.dataset.d ?? 0.6),
       mover: e.dataset.mover ? e.dataset.mover.split(",").map(Number) : null, girar: +(e.dataset.girar || 0),
       balanca: +(e.dataset.balanca || 0), pulsa: +(e.dataset.pulsa || 0),
-      tomba: +(e.dataset.tomba || 0), tombaT: +(e.dataset.tombaT || 0) };
+      tomba: +(e.dataset.tomba || 0), tombaT: +(e.dataset.tombaT || 0), moverD: +(e.dataset.moverD || 0) };
     e.style.transformBox = "fill-box"; e.style.transformOrigin = e.dataset.origem || "center";
     if (it.entra === "desenha") {
       it.tracos = [...(e.matches("path,line,polyline,polygon,circle,ellipse,rect") ? [e] : []),
@@ -509,7 +509,7 @@ VISUAIS.ilustracao = (caixa, v) => {
           it.tracos.forEach(p => { p.style.strokeDashoffset = 1 - lim(x * 1.25); p.style.fillOpacity = lim((x - 0.55) / 0.45) * +p.dataset.fillop; });
           break;
       }
-      if (it.mover) { const m = suave(prog(tl, it.t, Math.max(0.5, dur - it.t))); tx += it.mover[0] * m; ty += it.mover[1] * m; }
+      if (it.mover) { const m = suave(prog(tl, it.t, it.moverD || Math.max(0.5, dur - it.t))); tx += it.mover[0] * m; ty += it.mover[1] * m; }
       if (it.girar) rot += it.girar * tl;
       if (it.balanca) rot += it.balanca * Math.sin(tl * 2.4 + (it.e.dataset.fase ? +it.e.dataset.fase : 0));
       if (it.pulsa) sc *= 1 + it.pulsa * Math.sin(tl * 6);

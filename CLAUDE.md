@@ -58,7 +58,7 @@ O motor aplica sozinho o "tremido de lápis". Animação por atributos nos eleme
 | atributo | efeito |
 |---|---|
 | `data-entra="esq|dir|cima|baixo|zoom|pop|cai|fade|desenha"` + `data-t` (início, s) + `data-d` (duração) | entrada |
-| `data-mover="dx,dy"` | anda durante a cena |
+| `data-mover="dx,dy"` (+ `data-mover-d` = em quantos segundos) | anda durante a cena |
 | `data-girar="graus/s"` | gira (rodas, engrenagens) |
 | `data-balanca="graus"` + `data-fase` | balança (plantas, placas) |
 | `data-pulsa="0.04"` | pulsa |
@@ -70,6 +70,7 @@ Texto dentro do desenho: `<text font-family="Caveat" ... stroke="none">`.
 
 ## Moldes (estilos)
 - `rustico`: papel kraft, lápis, violão. Para histórias e produtos (padrão).
+- `claroflex-3d`: vídeos da ClaroFlex (sogro): 3D, destaque no vermelho da logo (#e3262f), voz 8 Rémy. Ele pediu: não dizer "enferruja"; a cortina desliza e abre na lateral em L.
 - `neon`, `neon-tela` (tela filmada), `papel` (caneta azul + avatar).
 - **16 estilos de animação** (`est-*`, base `estilo` + `acabamento`): o MESMO desenho da ilustração muda de cara.
   Se ele pedir "no estilo X", use o molde correspondente:

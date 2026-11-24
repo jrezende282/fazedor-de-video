@@ -7,8 +7,8 @@ from pathlib import Path
 TINTA = "#2b3245"
 VIDRO = "#bfe3f2"
 ALUM = "#b9c2cc"
-FERRUGEM = "#9a4a1c"
-VERM = "#d6453a"
+FERRUGEM = "#77736d"  # (era ferrugem; agora só sujeira cinza: ele pediu para não falar em ferrugem)
+VERM = "#e3262f"  # vermelho da logo
 PELE = "#e9b48a"
 CAMISA = "#4a78b5"
 AMAR = "#f0b73a"
@@ -92,7 +92,7 @@ def cena2():
     return svg(trilho_cima(100, 900, 200) + roldana(330, 260, 40, False) + roldana(640, 260, 44, True, 'data-entra="pop" data-t="0.3"')
                + painel(270, 290, 150, 380) + painel(580, 290, 150, 380)
                + "".join(f'<circle cx="{600 + 26 * k}" cy="{320 + (k % 2) * 16}" r="7" fill="{FERRUGEM}" stroke="none" data-entra="cai" data-t="{0.8 + 0.08 * k:.2f}"/>' for k in range(5))
-               + lupa + texto(640, 130, "roldana", 70, FERRUGEM, 'data-entra="pop" data-t="0.9"'), vb="120 80 860 640")
+               + lupa + texto(640, 130, "roldana", 70, VERM, 'data-entra="pop" data-t="0.9"'), vb="120 80 860 640")
 
 
 def cena3():
@@ -125,11 +125,25 @@ def cena5():
 
 
 def cena6():
-    """Os painéis giram e encostam de lado: sacada livre."""
-    paineis = "".join(painel(260 + 130 * k, 250, 120, 440, f'data-entra="fade" data-t="{0.3 + 0.12 * (4 - k):.2f}" data-d="0.1" data-mover="{-122 * k},0"') for k in reversed(range(5)))
-    return svg(pista_baixo(220, 920, 700) + trilho_cima(220, 920, 210) + paineis
-               + texto(600, 160, "abre de lado", 64, "#3f6fa8", 'data-entra="pop" data-t="1.2"')
-               + '<g data-som="pop" data-t="0.4"></g>', vb="180 100 780 660")
+    """Visto de cima: os painéis deslizam pela frente da sacada e, na quina, viram e encostam na lateral, formando um L."""
+    piso = (f'<rect x="200" y="250" width="620" height="400" fill="#fbf7f0" stroke="none"/>'
+            f'<path d="M820 250 H200 V650" fill="none" stroke="#8f8577" stroke-width="16"/>'        # paredes (fundo e lateral)
+            f'<rect x="200" y="652" width="620" height="16" rx="6" fill="{ALUM}"/>')               # pista na frente
+    paineis = ""
+    for k in range(5):
+        x = 205 + 122 * k
+        chega = 0.3 + 0.28 * k                      # cada painel desliza até a quina...
+        dx = -(x - 205) + 30 * k                   # ...encosta um pouquinho ao lado do anterior...
+        paineis += (f'<g data-mover="{dx},0" data-t="{chega:.2f}" data-mover-d="0.55" data-tomba="-90" data-tomba-t="{chega + 0.55:.2f}" '
+                    f'data-origem="0% 50%"><rect x="{x}" y="645" width="116" height="22" rx="5" fill="{VIDRO}" fill-opacity=".9"/></g>')  # ...e vira 90°
+    # o caminho em L: anda pela frente e sobe pela lateral
+    seta = (f'<path d="M790 715 H262 V320" fill="none" stroke="{VERM}" stroke-width="12" stroke-dasharray="26 18" data-entra="desenha" data-t="0.15" data-d="1.6"/>'
+            f'<path d="M238 350 l24 -30 l24 30" fill="none" stroke="{VERM}" stroke-width="12" data-entra="pop" data-t="1.7"/>')
+    letra = texto(580, 470, "abre em L", 100, VERM, 'data-entra="pop" data-t="1.9" data-som="pop"')
+    rotulos = (texto(520, 790, "desliza", 56, TINTA, 'data-entra="pop" data-t="0.5"', "Fredoka", 600)
+               + texto(510, 220, "vista de cima", 44, "#8f8577", 'data-entra="fade" data-t="0.1"', "Fredoka", 600)
+               + texto(580, 560, "sacada livre", 54, VERDE, 'data-entra="pop" data-t="2.3"', "Fredoka", 600))
+    return svg(piso + paineis + seta + letra + rotulos, vb="140 170 760 670")
 
 
 def cena8():
@@ -146,10 +160,10 @@ def cena8():
 CENAS = [
     {"fala": "Sua cortina de vidro ainda *emperra* assim?", "visual": {"tipo": "ilustracao", "svg": cena1(), "onomatopeia": "ARGH!"}, "pausa": 0.35},
     {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2(), "onomatopeia": "HMM?"}},
-    {"fala": "Com o tempo, ela enferruja, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
+    {"fala": "Com o tempo, ela emperra, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
     {"fala": "A *ClaroFlex* resolveu isso com um sistema europeu.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "sistema europeu", "onomatopeia": "UAU!"}},
     {"fala": "Sem roldanas: o vidro desliza numa *pista* lá embaixo, com o peso apoiado no chão.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
-    {"fala": "E os painéis deslizam e encostam de lado, deixando a sacada *livre*.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
+    {"fala": "E os painéis deslizam e abrem na lateral, em *L*, deixando a sacada livre.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
                                                                                "icone": "engrenagem", "depois": "vidro que desliza", "icone_depois": "check", "onomatopeia": "TCHAU!"}},
     {"fala": "Menos manutenção, mais *vista*.", "visual": {"tipo": "ilustracao", "svg": cena8(), "onomatopeia": "AAAH!"}},
@@ -157,8 +171,8 @@ CENAS = [
 ]
 
 roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
-           "legenda_post": ("Sua cortina de vidro emperra, enferruja ou trava? 😩 A ClaroFlex usa um sistema europeu sem roldanas: "
-                            "o vidro desliza numa pista lá embaixo, com o peso apoiado no chão. Menos manutenção, mais vista. 🌅 "
+           "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex usa um sistema europeu sem roldanas: "
+                            "o vidro desliza numa pista lá embaixo, com o peso apoiado no chão, e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
                             "Comenta CLAROFLEX que a gente te chama! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
            "cenas": CENAS}
 Path(__file__).with_name("roteiro.json").write_text(json.dumps(roteiro, ensure_ascii=False), encoding="utf-8")

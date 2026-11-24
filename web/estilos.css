@@ -173,5 +173,5 @@
 .acab-real3d svg.desenho *:not([fill="none"]):not(g):not(svg) { stroke: none !important; }
 .acab-real3d svg.desenho [fill="none"] { stroke-width: 9 !important; }
 .acab-real3d .legenda { font-family: "Fredoka", var(--f-texto); font-weight: 700; color: #3a2a20; letter-spacing: 0; }
-.acab-real3d .pal.dest { color: #e2674a; }
+.acab-real3d .pal.dest { color: var(--destaque); }
 .acab-real3d .painel { border: none; border-radius: calc(var(--u) * 4); background: linear-gradient(#fff, #f2e6da); box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 4) rgba(58,42,32,.25); }
