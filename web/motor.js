@@ -58,6 +58,7 @@ const flash = el("div", "flash");
 cena3d.appendChild(flash);
 
 let atualizarMoldura = () => {};
+let ACAB = null;  // acabamento (só na base "estilo")
 if (M.base === "neon") {
   fundo.innerHTML = `<div class="grade"></div><div class="chao"></div><div class="poeira"></div><div class="vinheta"></div><div class="varredura"></div>`;
   const rnd = aleatorio(7), poeira = fundo.querySelector(".poeira");
@@ -88,6 +89,12 @@ if (M.base === "neon") {
     }
     fundo.querySelector(".varredura").style.transform = `translateY(${((t * 0.35) % 1.2 - 0.1) * PH}px)`;
   };
+} else if (M.base === "estilo") {
+  ACAB = window.instalarAcabamento(M.acabamento);
+  fundo.innerHTML = ACAB.fundo ? ACAB.fundo(PW, PH) : "";
+  moldura.innerHTML = ACAB.moldura ? ACAB.moldura() : "";
+  if (M.marca) moldura.insertAdjacentHTML("beforeend", `<div class="rot r-sup-esq">${esc(M.marca)}</div>`);
+  atualizarMoldura = (t, cena) => { if (ACAB.atualizar) ACAB.atualizar(t, cena, { fundo, moldura, PW, PH }); };
 } else if (M.base === "rustico") {
   fundo.innerHTML = `<div class="papel"></div><div class="manchas"></div><div class="vinheta"></div>`;
   moldura.innerHTML = `<svg class="borda-mao" viewBox="0 0 1000 1000" preserveAspectRatio="none"><rect x="22" y="14" width="956" height="972" rx="6"/></svg>
@@ -425,7 +432,7 @@ VISUAIS.cta = (caixa, v) => {
   defs.setAttribute("width", "0"); defs.setAttribute("height", "0"); defs.style.position = "absolute";
   defs.innerHTML = `<filter id="rabisco" x="-5%" y="-5%" width="110%" height="110%">
     <feTurbulence id="rabisco-ruido" type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="1"/>
-    <feDisplacementMap in="SourceGraphic" scale="${M.rabisco ?? 4}" xChannelSelector="R" yChannelSelector="G"/></filter>`;
+    <feDisplacementMap in="SourceGraphic" scale="${M.base === "estilo" ? ((window.ACABAMENTOS[M.acabamento] || {}).rabisco || 0) : (M.rabisco ?? 4)}" xChannelSelector="R" yChannelSelector="G"/></filter>`;
   document.body.appendChild(defs);
 })();
 const ruido = document.getElementById("rabisco-ruido");
@@ -437,7 +444,18 @@ VISUAIS.ilustracao = (caixa, v) => {
   const svg = b.querySelector("svg");
   if (!svg) return () => {};
   svg.classList.add("desenho");
-  if (M.rabisco !== 0 && v.rabisco !== false) svg.style.filter = "url(#rabisco)";
+  const rab = ACAB ? (ACAB.rabisco ? "url(#rabisco) " : "") : (M.rabisco !== 0 && v.rabisco !== false ? "url(#rabisco) " : "");
+  const filtroAcab = ACAB && ACAB.filtro ? ACAB.filtro : "";
+  if (rab || filtroAcab) svg.style.filter = (rab + filtroAcab).trim();
+  // estilos de traço (caderno, lousa, planta): tudo que não tem animação própria vai se desenhando, na ordem
+  const autoTracos = [];
+  if (ACAB && ACAB.desenharTudo) {
+    const comAnim = new Set([...svg.querySelectorAll("[data-entra] *, [data-entra]")]);
+    svg.querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect").forEach(p => {
+      if (comAnim.has(p)) return;
+      p.setAttribute("pathLength", "1"); p.style.strokeDasharray = "1"; autoTracos.push(p);
+    });
+  }
   const itens = [...svg.querySelectorAll("[data-entra],[data-mover],[data-girar],[data-balanca],[data-pulsa],[data-som],[data-tomba]")].map(e => {
     const it = { e, entra: e.dataset.entra, t: +(e.dataset.t ?? 0.1), d: +(e.dataset.d ?? 0.6),
       mover: e.dataset.mover ? e.dataset.mover.split(",").map(Number) : null, girar: +(e.dataset.girar || 0),
@@ -453,6 +471,10 @@ VISUAIS.ilustracao = (caixa, v) => {
     return it;
   });
   return (tl, dur) => {
+    if (autoTracos.length) {
+      const janela = Math.min(1.6, dur * 0.55), passo = janela / autoTracos.length;
+      autoTracos.forEach((p, i) => { p.style.strokeDashoffset = 1 - saida(prog(tl, i * passo * 0.7, Math.max(0.25, passo * 3))); });
+    }
     for (const it of itens) {
       const x = prog(tl, it.t, it.d);
       let tx = 0, ty = 0, sc = 1, rot = 0, op = 1;
@@ -527,7 +549,8 @@ function desenhar(t) {
     c.box.style.transform = `translateY(${(1 - ent) * 40 * sobe - saida(sai) * 60 * sobe}px) scale(${misturar(1.04, 1, ent) * misturar(1, 0.97, sai)})`;
     c.interno.style.transform = `scale(${c.escala * misturar(1, 1.035, prog(tl, 0, dur))})`;
     c.legenda(t);
-    c.visual(tl, dur);
+    const q = ACAB && ACAB.quadros ? ACAB.quadros : 0;
+    c.visual(q ? Math.floor(tl * q) / q : tl, dur);
   }
   // flash rápido na troca de cena (neon) / nada no papel
   let fl = 0;
@@ -536,7 +559,7 @@ function desenhar(t) {
   // câmera: aproximação lenta e respiração
   const z = 1 + 0.015 * Math.sin(t * 0.5);
   cena3d.style.transform = `scale(${z}) translate(${Math.sin(t * 0.7) * 3}px, ${Math.cos(t * 0.6) * 3}px)`;
-  if (ruido) ruido.setAttribute("seed", String(1 + (Math.floor(t * 8) % 4)));
+  if (ruido) ruido.setAttribute("seed", String(1 + (Math.floor(t * (ACAB && ACAB.quadros ? ACAB.quadros : 8)) % 4)));
   atualizarMoldura(t, atual);
   atualizarCursores(t, atual);
   if (M.formato === "monitor") atualizarMonitor(t);

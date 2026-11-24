@@ -1,0 +1,43 @@
+{
+ "nome": "13 · Filme mudo",
+ "descricao": "Preto e branco com grão, riscos, tremido de luz e letreiro de cinema antigo.",
+ "base": "estilo",
+ "acabamento": "filme",
+ "cores": {
+  "fundo": "#bdb9b0",
+  "fundo2": "#e9e5dc",
+  "texto": "#151515",
+  "destaque": "#151515",
+  "destaque2": "#555555"
+ },
+ "fontes": {
+  "titulo": "'Special Elite', serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Special Elite', serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

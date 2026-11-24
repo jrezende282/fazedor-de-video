@@ -1,0 +1,43 @@
+{
+ "nome": "07 · Minimalista com contador",
+ "descricao": "Fundo preto, silhueta branca e um contador de visualizações subindo.",
+ "base": "estilo",
+ "acabamento": "minimal",
+ "cores": {
+  "fundo": "#000000",
+  "fundo2": "#111111",
+  "texto": "#ffffff",
+  "destaque": "#ffffff",
+  "destaque2": "#8a8a8a"
+ },
+ "fontes": {
+  "titulo": "'Inter', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Inter', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

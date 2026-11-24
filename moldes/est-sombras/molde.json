@@ -1,0 +1,43 @@
+{
+ "nome": "08 · Teatro de sombras",
+ "descricao": "Silhuetas pretas contra um pôr do sol laranja.",
+ "base": "estilo",
+ "acabamento": "sombras",
+ "cores": {
+  "fundo": "#f08a2a",
+  "fundo2": "#ffe2b0",
+  "texto": "#2a1206",
+  "destaque": "#fff4dc",
+  "destaque2": "#2a1206"
+ },
+ "fontes": {
+  "titulo": "'Alfa Slab One', serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Alfa Slab One', serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "violao",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "nome": "14 · História em quadrinhos",
+ "descricao": "Contorno grosso, retícula, balão de onomatopeia (VRUUM!, POW!) em cada cena.",
+ "base": "estilo",
+ "acabamento": "quadrinhos",
+ "cores": {
+  "fundo": "#9fd8f5",
+  "fundo2": "#ffffff",
+  "texto": "#111111",
+  "destaque": "#d6262b",
+  "destaque2": "#ffe14d"
+ },
+ "fontes": {
+  "titulo": "'Bangers', cursive",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Bangers', cursive",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

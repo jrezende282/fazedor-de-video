@@ -1,0 +1,43 @@
+{
+ "nome": "05 · Lousa branca",
+ "descricao": "Quadro branco com caneta azul, tudo se desenhando na hora.",
+ "base": "estilo",
+ "acabamento": "lousa",
+ "cores": {
+  "fundo": "#f6f8fa",
+  "fundo2": "#ffffff",
+  "texto": "#1f4fa3",
+  "destaque": "#c43a3a",
+  "destaque2": "#1f4fa3"
+ },
+ "fontes": {
+  "titulo": "'Architects Daughter', cursive",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Architects Daughter', cursive",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "nome": "12 · Low poly 3D",
+ "descricao": "Cenário de triângulos e cores facetadas.",
+ "base": "estilo",
+ "acabamento": "lowpoly",
+ "cores": {
+  "fundo": "#5c9bd6",
+  "fundo2": "#eaf4ff",
+  "texto": "#14304f",
+  "destaque": "#ffd84a",
+  "destaque2": "#ff7a59"
+ },
+ "fontes": {
+  "titulo": "'Fredoka', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Fredoka', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

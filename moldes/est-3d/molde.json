@@ -1,0 +1,43 @@
+{
+ "nome": "16 · 3D de verdade",
+ "descricao": "Volume com luz e sombra macia, cara de animação 3D.",
+ "base": "estilo",
+ "acabamento": "real3d",
+ "cores": {
+  "fundo": "#f1d8c0",
+  "fundo2": "#ffffff",
+  "texto": "#3a2a20",
+  "destaque": "#e2674a",
+  "destaque2": "#5b9bd5"
+ },
+ "fontes": {
+  "titulo": "'Fredoka', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Fredoka', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "nome": "15 · Terminal de código",
+ "descricao": "Tela preta, traço verde pontilhado e linhas de monitor antigo.",
+ "base": "estilo",
+ "acabamento": "terminal",
+ "cores": {
+  "fundo": "#020a03",
+  "fundo2": "#031407",
+  "texto": "#b8ffc8",
+  "destaque": "#3dff6e",
+  "destaque2": "#3dff6e"
+ },
+ "fontes": {
+  "titulo": "'JetBrains Mono', monospace",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'JetBrains Mono', monospace",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

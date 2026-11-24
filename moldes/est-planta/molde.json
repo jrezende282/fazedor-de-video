@@ -1,0 +1,43 @@
+{
+ "nome": "11 · Planta técnica",
+ "descricao": "Azul de projeto, grade e traço branco que vai se desenhando, com cotas.",
+ "base": "estilo",
+ "acabamento": "planta",
+ "cores": {
+  "fundo": "#1f4f92",
+  "fundo2": "#1f4f92",
+  "texto": "#f2f7ff",
+  "destaque": "#ffd84a",
+  "destaque2": "#f2f7ff"
+ },
+ "fontes": {
+  "titulo": "'JetBrains Mono', monospace",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'JetBrains Mono', monospace",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

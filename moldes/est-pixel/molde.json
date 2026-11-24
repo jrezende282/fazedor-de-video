@@ -1,0 +1,43 @@
+{
+ "nome": "02 · Pixel art",
+ "descricao": "Tudo em pixels grandes, céu estrelado e fonte de videogame.",
+ "base": "estilo",
+ "acabamento": "pixel",
+ "cores": {
+  "fundo": "#1b1848",
+  "fundo2": "#2a2470",
+  "texto": "#fff6c8",
+  "destaque": "#ffd23d",
+  "destaque2": "#ff5a6a"
+ },
+ "fontes": {
+  "titulo": "'Press Start 2P', monospace",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Press Start 2P', monospace",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

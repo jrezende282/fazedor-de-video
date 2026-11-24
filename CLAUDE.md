@@ -68,6 +68,17 @@ Texto dentro do desenho: `<text font-family="Caveat" ... stroke="none">`.
 ## Moldes (estilos)
 - `rustico`: papel kraft, lápis, violão. Para histórias e produtos (padrão).
 - `neon`, `neon-tela` (tela filmada), `papel` (caneta azul + avatar).
+- **16 estilos de animação** (`est-*`, base `estilo` + `acabamento`): o MESMO desenho da ilustração muda de cara.
+  Se ele pedir "no estilo X", use o molde correspondente:
+  `est-chapado` cartoon chapado · `est-pixel` pixel art · `est-caderno` rabisco de caderno · `est-recorte` recorte de papel ·
+  `est-lousa` lousa branca · `est-neon80` neon anos 80 · `est-minimal` minimalista com contador (molde.contador_final) ·
+  `est-sombras` teatro de sombras · `est-massinha` massinha/stop motion · `est-cordel` xilogravura de cordel ·
+  `est-planta` planta técnica · `est-lowpoly` low poly 3D · `est-filme` filme mudo · `est-quadrinhos` história em quadrinhos
+  (visual.onomatopeia muda o "VRUUM!" da cena) · `est-terminal` terminal de código · `est-3d` 3D de verdade.
+  - Os estilos de traço (caderno, lousa, planta) desenham sozinhos tudo que não tem `data-entra`; os de silhueta
+    (sombras, minimal) usam só o contorno: desenhe formas bem reconhecíveis pela silhueta.
+  - Desenhe com cores chapadas e contorno normal: cada estilo troca cor/traço/filtro sozinho (`web/estilos.js` e `web/estilos.css`).
+  - Mostruário (o mesmo foguete nos 16): `python ferramentas/mostruario.py [est-...]` → `saida/mostruario/`.
 Molde = `moldes/<nome>/molde.json` (cores, fontes, voz, velocidade, tom_voz, musica: pulso|lofi|violao).
 Se ele mandar vídeos de exemplo: olhe quadros (`ffmpeg ... tile`), crie um molde novo copiando o mais parecido e
 ajustando cores/fontes/música/tom do roteiro.

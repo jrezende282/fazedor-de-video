@@ -1,0 +1,43 @@
+{
+ "nome": "06 · Neon anos 80",
+ "descricao": "Synthwave: sol listrado, grade rosa no chão e traço neon.",
+ "base": "estilo",
+ "acabamento": "neon80",
+ "cores": {
+  "fundo": "#1a0a3a",
+  "fundo2": "#261447",
+  "texto": "#f9f3ff",
+  "destaque": "#2de2e6",
+  "destaque2": "#ff2fd5"
+ },
+ "fontes": {
+  "titulo": "'Audiowide', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Audiowide', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "pulso",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

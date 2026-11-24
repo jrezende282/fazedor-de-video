@@ -1,0 +1,43 @@
+{
+ "nome": "09 · Massinha (stop motion)",
+ "descricao": "Bonecos de massinha com brilho, animação de 12 quadros por segundo.",
+ "base": "estilo",
+ "acabamento": "massinha",
+ "cores": {
+  "fundo": "#dceff3",
+  "fundo2": "#ffffff",
+  "texto": "#3a2a40",
+  "destaque": "#e2557a",
+  "destaque2": "#7cc46a"
+ },
+ "fontes": {
+  "titulo": "'Fredoka', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Fredoka', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

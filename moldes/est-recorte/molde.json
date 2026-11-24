@@ -1,0 +1,43 @@
+{
+ "nome": "04 · Recorte de papel",
+ "descricao": "Camadas de papel recortado com sombrinha, cores suaves.",
+ "base": "estilo",
+ "acabamento": "recorte",
+ "cores": {
+  "fundo": "#dcebe8",
+  "fundo2": "#fffaf0",
+  "texto": "#3a2716",
+  "destaque": "#d9573b",
+  "destaque2": "#f4c84a"
+ },
+ "fontes": {
+  "titulo": "'Fredoka', sans-serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Fredoka', sans-serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "violao",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

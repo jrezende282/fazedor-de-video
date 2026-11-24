@@ -1,0 +1,43 @@
+{
+ "nome": "10 · Xilogravura de cordel",
+ "descricao": "Preto e branco de xilogravura, papel envelhecido e moldura de folheto.",
+ "base": "estilo",
+ "acabamento": "cordel",
+ "cores": {
+  "fundo": "#efe3c5",
+  "fundo2": "#efe3c5",
+  "texto": "#1c140e",
+  "destaque": "#a8321e",
+  "destaque2": "#1c140e"
+ },
+ "fontes": {
+  "titulo": "'Alfa Slab One', serif",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Alfa Slab One', serif",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "violao",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "nome": "03 · Rabisco de caderno",
+ "descricao": "Folha pautada, traço de caneta que vai se desenhando sozinho.",
+ "base": "estilo",
+ "acabamento": "caderno",
+ "cores": {
+  "fundo": "#fdfcf6",
+  "fundo2": "#fdfcf6",
+  "texto": "#26262e",
+  "destaque": "#2954c8",
+  "destaque2": "#e58d8d"
+ },
+ "fontes": {
+  "titulo": "'Architects Daughter', cursive",
+  "texto": "'Inter', sans-serif",
+  "mono": "'JetBrains Mono', monospace",
+  "destaque": "'Architects Daughter', cursive",
+  "mao": "'Caveat', cursive"
+ },
+ "marca": "",
+ "formato": "vertical",
+ "topo_texto": "",
+ "cursores": false,
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+4%",
+ "tom_voz": "+0Hz",
+ "musica": "lofi",
+ "volume_musica": 0.55,
+ "roteiro": {
+  "tom": "simples, caloroso, com uma pitada de humor; frases curtas",
+  "gancho": "uma cena concreta que a pessoa imagina na hora",
+  "duracao_seg": 30,
+  "cta": "Comenta {PALAVRA}",
+  "visuais_preferidos": [
+   "ilustracao",
+   "titulo",
+   "riscado",
+   "numero",
+   "fluxo",
+   "cta"
+  ]
+ }
+}
