@@ -114,14 +114,14 @@ def cena4():
 
 
 def cena5():
-    """Sem roldanas: o vidro desliza numa pista lá embaixo, com o peso apoiado no chão."""
+    """Sem roldanas: o vidro desliza no trilho inferior."""
     setas = "".join(f'<path d="M{430 + 120 * k} 520 v120 m-26 -26 l26 26 l26 -26" fill="none" stroke="{VERDE}" stroke-width="12" '
                     f'data-entra="desenha" data-t="{1.0 + 0.15 * k:.2f}" data-d="0.4"/>' for k in range(2))
     sem = (f'<g data-entra="pop" data-t="0.3"><circle cx="230" cy="170" r="56" fill="#ffffff"/><circle cx="230" cy="170" r="24" fill="#8f97a1"/>'
            f'<path d="M180 120 l100 100" stroke="{VERM}" stroke-width="14" fill="none"/></g>'
            + texto(250, 290, "sem roldana", 62, VERM, 'data-entra="pop" data-t="0.5"'))
     return svg(pista_baixo(100, 900, 720) + painel(560, 260, 200, 460, 'data-entra="dir" data-t="0" data-d="0.5" data-mover="-180,0"')
-               + sem + setas + texto(520, 840, "peso apoiado no chão", 66, VERDE, 'data-entra="pop" data-t="1.4"'), vb="120 90 820 780")
+               + sem + setas + texto(520, 840, "desliza no trilho inferior", 62, VERDE, 'data-entra="pop" data-t="1.4"'), vb="120 90 820 780")
 
 
 def cena6():
@@ -162,7 +162,7 @@ CENAS = [
     {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2(), "onomatopeia": "HMM?"}},
     {"fala": "Com o tempo, ela emperra, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
     {"fala": "A *ClaroFlex* resolveu isso com um sistema europeu.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "sistema europeu", "onomatopeia": "UAU!"}},
-    {"fala": "Sem roldanas: o vidro desliza numa *pista* lá embaixo, com o peso apoiado no chão.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
+    {"fala": "Sem roldanas: o vidro desliza no *trilho inferior*.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
     {"fala": "E os painéis deslizam e abrem na lateral, em *L*, deixando a sacada livre.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
                                                                                "icone": "engrenagem", "depois": "vidro que desliza", "icone_depois": "check", "onomatopeia": "TCHAU!"}},
@@ -172,7 +172,7 @@ CENAS = [
 
 roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
            "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex usa um sistema europeu sem roldanas: "
-                            "o vidro desliza numa pista lá embaixo, com o peso apoiado no chão, e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
+                            "o vidro desliza no trilho inferior e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
                             "Faça seu orçamento no link da bio! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
            "cenas": CENAS}
 Path(__file__).with_name("roteiro.json").write_text(json.dumps(roteiro, ensure_ascii=False), encoding="utf-8")
