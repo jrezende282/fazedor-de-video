@@ -1,4 +1,4 @@
-"""Pedido: vídeo para o feed do sogro, divulgando a ClaroFlex (cortina de vidro com sistema europeu sem roldanas).
+"""Pedido: vídeo para o feed do sogro, divulgando a Claroflex (cortina de vidro com sistema europeu sem roldanas).
 Fatos usados (pesquisa): empresa espanhola; no sistema Pivot o painel não fica pendurado em roldanas, desliza numa pista
 inferior de baixo atrito e o peso fica apoiado no chão; manutenção mínima; os painéis abrem para o lado."""
 import json
@@ -67,7 +67,7 @@ def pista_baixo(x0=100, x1=900, y=700):
 
 
 def logo_claroflex() -> str:
-    """Logo da ClaroFlex como na imagem enviada: fundo preto, retângulo vermelho vazado, CLAROFLEX em branco e ®."""
+    """Logo da Claroflex como na imagem enviada: fundo preto, retângulo vermelho vazado, CLAROFLEX em branco e ®."""
     return ('<svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">'
             '<rect width="700" height="140" fill="#0d0d0d"/>'
             '<rect x="40" y="44" width="118" height="54" rx="4" fill="none" stroke="#e3262f" stroke-width="10"/>'
@@ -105,11 +105,11 @@ def cena3():
 
 
 def cena4():
-    """A virada: ClaroFlex, sistema europeu."""
+    """A virada: Claroflex, sistema europeu."""
     brilhos = [(260, 300, 30, 0.4), (740, 280, 36, 0.5), (300, 620, 24, 0.6), (720, 640, 28, 0.7), (520, 250, 20, 0.8)]
     estrelas = "".join(f'<path d="M{x} {y - r} q{r * .25} {r * .75} {r} {r} q-{r * .75} {r * .25} -{r} {r} q-{r * .25} -{r * .75} -{r} -{r} q{r * .75} -{r * .25} {r} -{r}z" '
                        f'fill="{AMAR}" stroke-width="3" data-entra="pop" data-t="{t}" data-pulsa="0.1"/>' for x, y, r, t in brilhos)
-    return svg(estrelas + texto(500, 470, "ClaroFlex", 120, TINTA, 'data-entra="zoom" data-t="0" data-d="0.5" data-som="impacto"')
+    return svg(estrelas + texto(500, 470, "Claroflex", 120, TINTA, 'data-entra="zoom" data-t="0" data-d="0.5" data-som="impacto"')
                + texto(500, 560, "sistema europeu", 56, "#3f6fa8", 'data-entra="pop" data-t="0.6"', "Fredoka", 600), vb="200 170 600 540")
 
 
@@ -161,7 +161,7 @@ CENAS = [
     {"fala": "Sua cortina de vidro ainda *emperra* assim?", "visual": {"tipo": "ilustracao", "svg": cena1(), "onomatopeia": "ARGH!"}, "pausa": 0.35},
     {"fala": "O culpado mora lá em cima: a *roldana*.", "visual": {"tipo": "ilustracao", "svg": cena2(), "onomatopeia": "HMM?"}},
     {"fala": "Com o tempo, ela emperra, trava... e pode até *quebrar* o vidro.", "visual": {"tipo": "ilustracao", "svg": cena3(), "onomatopeia": "CREC!"}, "pausa": 0.35},
-    {"fala": "Foi aí que a ClaroFlex, uma empresa *europeia*, desenvolveu um sistema que acaba com isso.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "empresa europeia", "onomatopeia": "UAU!"}},
+    {"fala": "Foi aí que a Claroflex, uma empresa *europeia*, desenvolveu um sistema que acaba com isso.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "empresa europeia", "onomatopeia": "UAU!"}},
     {"fala": "Sem roldanas: o vidro desliza no *trilho inferior*.", "visual": {"tipo": "ilustracao", "svg": cena5(), "onomatopeia": "ZUUM!"}},
     {"fala": "E os painéis deslizam e abrem na lateral, em *L*, deixando a sacada livre.", "visual": {"tipo": "ilustracao", "svg": cena6(), "onomatopeia": "SHHH!"}},
     {"fala": "Adeus, roldana que *emperra*. Olá, vidro que desliza.", "visual": {"tipo": "riscado", "rotulo": "adeus", "antes": "roldana que emperra",
@@ -170,8 +170,8 @@ CENAS = [
     {"fala": "Quer na sua sacada? Faça seu *orçamento* no link da bio.", "visual": {"tipo": "marca", "logo": logo_claroflex(), "sub": "orçamento no link da bio", "onomatopeia": "BORA!"}},
 ]
 
-roteiro = {"titulo": "ClaroFlex: cortina de vidro sem roldanas",
-           "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A ClaroFlex, empresa europeia, desenvolveu um sistema sem roldanas: "
+roteiro = {"titulo": "Claroflex: cortina de vidro sem roldanas",
+           "legenda_post": ("Sua cortina de vidro emperra ou trava? 😩 A Claroflex, empresa europeia, desenvolveu um sistema sem roldanas: "
                             "o vidro desliza no trilho inferior e abre na lateral em L. Menos manutenção, mais vista. 🌅 "
                             "Faça seu orçamento no link da bio! #claroflex #cortinadevidro #sacada #envidracamento #arquitetura #varanda"),
            "cenas": CENAS}

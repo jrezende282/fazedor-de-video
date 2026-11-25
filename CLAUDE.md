@@ -70,9 +70,9 @@ Texto dentro do desenho: `<text font-family="Caveat" ... stroke="none">`.
 
 ## Moldes (estilos)
 - `rustico`: papel kraft, lápis, violão. Para histórias e produtos (padrão).
-- `claroflex-3d`: vídeos da ClaroFlex (sogro): 3D, destaque no vermelho da logo (#e3262f), voz 1 Antônio. Ele pediu: não dizer
+- `claroflex-3d`: vídeos da Claroflex (sogro): 3D, destaque no vermelho da logo (#e3262f), voz 1 Antônio. Ele pediu: não dizer
   "enferruja"; a cortina desliza e abre na lateral em L; final = só a logo + "Faça seu orçamento no link da bio" (sem "Comenta").
-  Dar ênfase: "a ClaroFlex, uma empresa europeia, desenvolveu o sistema" (sem citar a Espanha); o vidro "desliza no trilho inferior" (nunca "no chão").
+  Dar ênfase: "a Claroflex, uma empresa europeia, desenvolveu o sistema" (sem citar a Espanha); o vidro "desliza no trilho inferior" (nunca "no chão").
 - `neon`, `neon-tela` (tela filmada), `papel` (caneta azul + avatar).
 - **16 estilos de animação** (`est-*`, base `estilo` + `acabamento`): o MESMO desenho da ilustração muda de cara.
   Se ele pedir "no estilo X", use o molde correspondente:
@@ -91,7 +91,7 @@ ajustando cores/fontes/música/tom do roteiro.
 
 ## Vozes
 `animatik/voz.py` (VOZES). Padrão: pt-BR-AntonioNeural. **Use só as vozes pt-BR (1, 2, 3).** As "Multilingual" (4 a 10)
-adivinham o idioma de cada frase e já trocaram para espanhol no meio de um vídeo ("ClaroFlex", "sistema europeu").
+adivinham o idioma de cada frase e já trocaram para espanhol no meio de um vídeo ("Claroflex", "sistema europeu").
 Amostra: gere 1 frase e mande antes de um vídeo grande, se ele pedir.
 
 ## Programa para o PC dele
